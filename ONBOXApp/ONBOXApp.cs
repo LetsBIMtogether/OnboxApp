@@ -267,6 +267,7 @@ namespace ONBOXAppl
             PushButton btnRenumberColumnsSelect = sptRenumberColumns.AddPushButton(new PushButtonData(Properties.RibbonLanguage.RenumberElements_SelectColumns, Properties.RibbonLanguage.RenumberElements_SelectColumns.Replace("\\n", "\n"), dll, "ONBOXAppl.RenumberColumnsSelection")) as PushButton;
             btnRenumberColumnsSelect.SetContextualHelp(new ContextualHelp(ContextualHelpType.Url, Properties.HelpLinks.btnRenumberColumnsSelect));
 
+            /* AG // REMOVE 
             BitmapImage grid32 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnRenumberGrid32.png", UriKind.Absolute));
             BitmapImage grid16 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnRenumberGrid16.png", UriKind.Absolute));
             BitmapImage parking32 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnRenumberParking32.png", UriKind.Absolute));
@@ -312,6 +313,55 @@ namespace ONBOXAppl
             //BitmapImage ProjectExamples32 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnProjectExamplesFolder.png", UriKind.Absolute));
             BitmapImage Package16 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnPackage16.png", UriKind.Absolute));
             BitmapImage Package32 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnPackage32.png", UriKind.Absolute));
+            */
+
+            // AG //
+            BitmapImage grid32 = LoadImage("btnRenumberGrid32");
+            BitmapImage grid16 = LoadImage("btnRenumberGrid16");
+            BitmapImage parking32 = LoadImage("btnRenumberParking32");
+            BitmapImage parking16 = LoadImage("btnRenumberParking16");
+            BitmapImage parkingDelete16 = LoadImage("btnRenumberDeleteParking16");
+            BitmapImage parkingDelete32 = LoadImage("btnRenumberDeleteParking32");
+            BitmapImage parkingBlock16 = LoadImage("btnRenumberBlockParking16");
+            BitmapImage parkingBlock32 = LoadImage("btnRenumberBlockParking32");
+            BitmapImage beams32 = LoadImage("btnRenumberBeams32");
+            BitmapImage beams16 = LoadImage("btnRenumberBeams16");
+            BitmapImage Column16 = LoadImage("btnRenumberColumns16");
+            BitmapImage Column32 = LoadImage("btnRenameColumns32");
+            BitmapImage Column16Select = LoadImage("btnRenameColumns16");
+            BitmapImage Column32Select = LoadImage("btnRenameColumns32Select");
+            BitmapImage BeamsFromBuilding16 = LoadImage("btnBeamsFromBuilding16");
+            BitmapImage BeamsFromBuilding32 = LoadImage("btnBeamsFromBuilding32");
+            BitmapImage createBeam16 = LoadImage("btnWallsToBeams16");
+            BitmapImage createBeam32 = LoadImage("btnWallsToBeamsCreate32");
+            BitmapImage createUpdate32 = LoadImage("btnWallsToBeamsUpdate32");
+            BitmapImage createBeamsFromColumns16 = LoadImage("btnColumnsToBeams16");
+            BitmapImage createBeamsFromColumns32 = LoadImage("btnColumnsToBeams32");
+            BitmapImage ColumnsFromDwg16 = LoadImage("btnColumnsFromDWG16");
+            BitmapImage ColumnsFromDwg32 = LoadImage("btnColumnsFromDWG32");
+            BitmapImage ElementsCopy16 = LoadImage("btnBeamsCopyLevels16");
+            BitmapImage ElementsCopy32 = LoadImage("btnBeamsCopyLevels");
+            BitmapImage ElementsJoin16 = LoadImage("btnJoinMultiple16");
+            BitmapImage ElementsJoin32 = LoadImage("btnJoinMultiple");
+            BitmapImage ElementsSelectJoin16 = LoadImage("btnJoinSelectMultiple16");
+            BitmapImage ElementsSelectJoin32 = LoadImage("btnJoinSelectMultiple");
+            BitmapImage TopoFromPointCloud16 = LoadImage("btnTopoFromPointCloud16");
+            BitmapImage TopoFromPointCloud32 = LoadImage("btnTopoFromPointCloud32");
+            BitmapImage TopoFromDWG16 = LoadImage("btnTopoFromDWG16");
+            BitmapImage TopoFromDWG32 = LoadImage("btnTopoFromDWG");
+            BitmapImage TopoSlope16 = LoadImage("btnTopoSlope16");
+            BitmapImage TopoSlope32 = LoadImage("btnTopoSlope");
+            BitmapImage ONBOX32 = LoadImage("onBox32");
+            BitmapImage ONBOX16 = LoadImage("onBox16");
+            BitmapImage INFO32 = LoadImage("btnInfo32");
+            BitmapImage INFO16 = LoadImage("btnInfo16");
+            BitmapImage privacy32 = LoadImage("privacy32");
+            BitmapImage privacy16 = LoadImage("privacy16");
+            //BitmapImage ProjectExamples16 = LoadImage("btnProjectExamplesFolder16");
+            //BitmapImage ProjectExamples32 = LoadImage("btnProjectExamplesFolder");
+            BitmapImage Package16 = LoadImage("btnPackage16");
+            BitmapImage Package32 = LoadImage("btnPackage32");
+            // AG //
 
             btnRenumberGrids.LargeImage = grid32;
             btnRenumberGrids.Image = grid16;
@@ -478,8 +528,47 @@ namespace ONBOXAppl
                     }
                 }
             }
-            
         }
+
+        // AG //
+
+        private BitmapImage LoadImage(string resourceName)
+        {
+            try
+            {
+                var bitmap = Properties.Resources.ResourceManager.GetObject(resourceName) as System.Drawing.Bitmap;
+                if (bitmap == null)
+                    throw new FileNotFoundException($"Resource '{resourceName}' not found in Properties.Resources.");
+
+                using (var memoryStream = new MemoryStream())
+                {
+                    bitmap.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
+                    memoryStream.Position = 0;
+                    var bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = memoryStream;
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.EndInit();
+                    bitmapImage.Freeze(); // Optional: Makes it thread-safe
+                    return bitmapImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Failed to load resource '{resourceName}': {ex.Message}\nStackTrace: {ex.StackTrace}");
+                // Use IndexOf with StringComparison for case-insensitive search
+                var assembly = Assembly.GetExecutingAssembly();
+                string[] resources = assembly.GetManifestResourceNames();
+                string matchingResource = resources.FirstOrDefault(r => r.IndexOf(resourceName, StringComparison.OrdinalIgnoreCase) >= 0);
+                if (matchingResource != null)
+                {
+                    System.Windows.MessageBox.Show($"Possible match found: {matchingResource}");
+                }
+                return null;
+            }
+        }
+
+        // AG // 
     }
 
     class ButtonAvailableOnProjectEnv : IExternalCommandAvailability
