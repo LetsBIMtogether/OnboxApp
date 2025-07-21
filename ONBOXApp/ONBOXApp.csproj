@@ -24,7 +24,8 @@
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<OutputPath>bin\$(Configuration)\$(RevitVersion)</OutputPath>
 		<BuildInParallel>false</BuildInParallel>
-		<DefineConstants>REVIT$(RevitVersion);WINFORMS</DefineConstants>
+		<DefineConstants>REVIT$(RevitVersion)</DefineConstants>
+			<!--;WINFORMS-->
 		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
 	</PropertyGroup>
 	<!-- Map Revit versions to .NET frameworks -->
@@ -97,7 +98,7 @@
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2024.*" Condition=" '$(RevitVersion)' == '2024' " PrivateAssets="All"/>
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2025.*" Condition=" '$(RevitVersion)' == '2025' " PrivateAssets="All"/>
 	</ItemGroup>
-	<PropertyGroup Condition="'$(RevitVersion)' != '2019' AND '$(RevitVersion)' != '2020' AND '$(RevitVersion)' != '2021' AND '$(RevitVersion)' != '2021' AND '$(RevitVersion)' != '2022' AND '$(RevitVersion)' != '2023' AND '$(RevitVersion)' != '2024'">
+	<PropertyGroup Condition="'$(RevitVersion)' != '2019' AND '$(RevitVersion)' != '2020' AND '$(RevitVersion)' != '2021' AND '$(RevitVersion)' != '2022' AND '$(RevitVersion)' != '2023' AND '$(RevitVersion)' != '2024'">
 		<DefineConstants>$(DefineConstants);REVIT2025UP</DefineConstants>
 		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
 	</PropertyGroup>
@@ -428,8 +429,110 @@
 		</None>
 		<Content Include="App.config"/>
 		<Content Include="ONBOXApp.addin"/>
+		
+		<!-- Doesn't help me . . . 
 		<EmbeddedResource Include="Resources\*.png"/>
 		<EmbeddedResource Include="Resources\*.ico"/>
+		-->
+		
+		<!-- See if need these . . .-->
+		<EmbeddedResource Include="Resources\privacy16.png"/>
+		<EmbeddedResource Include="Resources\privacy32.png"/>
+		<EmbeddedResource Include="Resources\btnProjectExamplesFolder16.png"/>
+		<EmbeddedResource Include="Resources\btnPackage32.png"/>
+		<EmbeddedResource Include="Resources\btnPackage16.png"/>
+		<EmbeddedResource Include="Resources\btnTopoSlope16.png"/>
+		<EmbeddedResource Include="Resources\btnTopoFromPointCloud16.png"/>
+		<EmbeddedResource Include="Resources\btnTopoFromDWG16.png"/>
+		<EmbeddedResource Include="Resources\btnJoinSelectMultiple16.png"/>
+		<EmbeddedResource Include="Resources\btnJoinMultiple16.png"/>
+		<EmbeddedResource Include="Resources\btnBeamsCopyLevels16.png"/>
+		<EmbeddedResource Include="Resources\btnWallsToBeams16.png"/>
+		<EmbeddedResource Include="Resources\btnColumnsToBeams16.png"/>
+		<EmbeddedResource Include="Resources\btnColumnsFromDWG16.png"/>
+		<EmbeddedResource Include="Resources\btnBeamsFromBuilding16.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberBlockParking16.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberDeleteParking16.png"/>
+		<EmbeddedResource Include="Resources\btnRenameColumns16.png"/>
+		<EmbeddedResource Include="Resources\LoadFamily.png"/>
+		<EmbeddedResource Include="Resources\btnJoinSelectMultiple.png"/>
+		<EmbeddedResource Include="Resources\btnShowSelect.png"/>
+		<EmbeddedResource Include="Resources\btnRenameColumns32Select.png"/>
+		<EmbeddedResource Include="Resources\btnPackage.png"/>
+		<EmbeddedResource Include="Resources\loadFamily30.png"/>
+		<EmbeddedResource Include="Resources\MouseMultipleCleanEnabled.png"/>
+		<EmbeddedResource Include="Resources\MouseMultipleSelectEnabled.png"/>
+		<EmbeddedResource Include="Resources\facebookAccount.png"/>
+		<EmbeddedResource Include="Resources\UpdateOnbox32.png"/>
+		<EmbeddedResource Include="Resources\UpdateOnbox16.png"/>
+
+		<Content Include="ONBOXApp.addin">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+
+		<EmbeddedResource Include="Resources\PlaceHolder32.png"/>
+		<EmbeddedResource Include="Resources\PlaceHolder16.png"/>
+		<EmbeddedResource Include="Resources\onBox32New.png"/>
+		<EmbeddedResource Include="Resources\Warning.png"/>
+		<EmbeddedResource Include="Resources\mail.png"/>
+		<EmbeddedResource Include="Resources\youtube.png"/>
+		<EmbeddedResource Include="Resources\facebook.png"/>
+
+		<None Include="Resources\onbox_icon.ico" />
+
+		<EmbeddedResource Include="Resources\ONBOXApps.png"/>
+		<EmbeddedResource Include="Resources\tickNull.png"/>
+		<EmbeddedResource Include="Resources\TickFlip.png"/>
+		<EmbeddedResource Include="Resources\Tick.png"/>
+		<EmbeddedResource Include="Resources\Section1.png"/>
+		<EmbeddedResource Include="Resources\Section0.png"/>
+		<EmbeddedResource Include="Resources\RemoveBeam.png"/>
+		<EmbeddedResource Include="Resources\Reload.png"/>
+		<EmbeddedResource Include="Resources\Points2.png"/>
+		<EmbeddedResource Include="Resources\onBox32.png"/>
+		<EmbeddedResource Include="Resources\onBox16.png"/>
+		<EmbeddedResource Include="Resources\MousePointerSelectEnabled.png"/>
+		<EmbeddedResource Include="Resources\MousePointerSelectDisabled.png"/>
+		<EmbeddedResource Include="Resources\Locker1.png"/>
+		<EmbeddedResource Include="Resources\Locker0.png"/>
+		<EmbeddedResource Include="Resources\layerBucket.png"/>
+		<EmbeddedResource Include="Resources\Join.png"/>
+		<EmbeddedResource Include="Resources\iconUjoin.ico"/>
+		<EmbeddedResource Include="Resources\iconJoin.ico"/>
+		<EmbeddedResource Include="Resources\Error.png"/>
+		<EmbeddedResource Include="Resources\CreateBeam.png"/>
+		<EmbeddedResource Include="Resources\Constraints1.png"/>
+		<EmbeddedResource Include="Resources\Constraints0.png"/>
+		<EmbeddedResource Include="Resources\Close.png"/>
+		<EmbeddedResource Include="Resources\btnWallsToBeamsUpdate32.png"/>
+		<EmbeddedResource Include="Resources\btnWallsToBeamsCreate32.png"/>
+		<EmbeddedResource Include="Resources\btnWallsToBeams32.png"/>
+		<EmbeddedResource Include="Resources\btnTopoSlope.png"/>
+		<EmbeddedResource Include="Resources\btnTopoFromPointCloud32.png"/>
+		<EmbeddedResource Include="Resources\btnTopoFromDWG.png"/>
+		<EmbeddedResource Include="Resources\btnRenumGrids36.png"/>
+		<EmbeddedResource Include="Resources\btnRenumGrids34.png"/>
+		<EmbeddedResource Include="Resources\btnRenumGrids32.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberParking32.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberParking16.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberGrid36.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberGrid32.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberGrid16.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberDeleteParking32.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberColumns16.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberBlockParking32.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberBeams32.png"/>
+		<EmbeddedResource Include="Resources\btnRenumberBeams16.png"/>
+		<EmbeddedResource Include="Resources\btnRenameColumns32.png"/>
+		<EmbeddedResource Include="Resources\btnProjectExamplesFolder.png"/>
+		<EmbeddedResource Include="Resources\btnJoinMultiple.png"/>
+		<EmbeddedResource Include="Resources\btnInfo32.png"/>
+		<EmbeddedResource Include="Resources\btnInfo16.png"/>
+		<EmbeddedResource Include="Resources\btnColumnsToBeams32.png"/>
+		<EmbeddedResource Include="Resources\btnColumnsFromDWG32.png"/>
+		<EmbeddedResource Include="Resources\btnBeamsFromBuilding32.png"/>
+		<EmbeddedResource Include="Resources\btnBeamsCopyLevels.png"/>
+		
 		<EmbeddedResource Include="OnboxAppInfo.xml"/>
 	</ItemGroup>
 	<!-- Add-in manifest processing -->
