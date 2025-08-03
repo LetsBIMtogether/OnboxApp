@@ -183,6 +183,8 @@
 		</Compile>
 		<Compile Include="Properties\WindowLanguage.Designer.cs">
 			<DependentUpon>WindowLanguage.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
 		</Compile>
 		<Compile Include="RenumberBeams\RenumberBeams.cs" />
 		<Compile Include="RenumberBeams\RenumberBeamsUI.xaml.cs">

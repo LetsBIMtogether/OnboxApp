@@ -1,8 +1,10 @@
 ﻿using ONBOXAppl;
+using System;
 using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Navigation;
 
 namespace ONBOXAppl
 {
@@ -14,6 +16,22 @@ namespace ONBOXAppl
         public AboutUI()
         {
             InitializeComponent();
+        }
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = e.Uri.AbsoluteUri,
+                    UseShellExecute = true
+                });
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening link: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void AboutWindow_Loaded(object sender, RoutedEventArgs e)

@@ -10,8 +10,8 @@
 
 namespace ONBOXAppl.Properties {
     using System;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -70,6 +70,15 @@ namespace ONBOXAppl.Properties {
         public static string About_Information {
             get {
                 return ResourceManager.GetString("About_Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This forked version is maintained by:.
+        /// </summary>
+        public static string About_LetsBIMtogether {
+            get {
+                return ResourceManager.GetString("About_LetsBIMtogether", resourceCulture);
             }
         }
         

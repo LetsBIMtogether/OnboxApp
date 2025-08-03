@@ -148,6 +148,9 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   <data name="BeamsForBuildingLevelOptions_ManuallyPickStandardFloors" xml:space="preserve">
     <value>Selecionar Manualmente os Pavimentos Tipo</value>
   </data>
+  <data name="BeamsForBuildingLevelOptions_MatchCase" xml:space="preserve">
+    <value>Sensível ao Caso</value>
+  </data>
   <data name="BeamsForBuildingLevelOptions_Name" xml:space="preserve">
     <value>Nome</value>
   </data>
@@ -214,9 +217,6 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   <data name="BeamsForBuilding_Title" xml:space="preserve">
     <value>Criar Vigas Para Todo o Edifício</value>
   </data>
-  <data name="BeamsFromColumns_ChooseBeamFamily" xml:space="preserve">
-    <value>Escolha Família de Viga</value>
-  </data>
   <data name="BeamsForBuilding_TryToJoin" xml:space="preserve">
     <value>Tentar juntar vigas com paredes próximas</value>
   </data>
@@ -225,6 +225,9 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   </data>
   <data name="BeamsFromColumns_Chain" xml:space="preserve">
     <value>Cadeia</value>
+  </data>
+  <data name="BeamsFromColumns_ChooseBeamFamily" xml:space="preserve">
+    <value>Escolha Família de Viga</value>
   </data>
   <data name="BeamsFromColumns_Create" xml:space="preserve">
     <value>Criar</value>
@@ -294,6 +297,9 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   </data>
   <data name="BeamsFromWalls_Title" xml:space="preserve">
     <value>Vigas Por Paredes</value>
+  </data>
+  <data name="BeamsFromWalls_ToTheHighestCasing" xml:space="preserve">
+    <value>Para a Maior Abertura</value>
   </data>
   <data name="BeamsFromWalls_UpperBeam" xml:space="preserve">
     <value>Viga Superior</value>
@@ -457,6 +463,18 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   <data name="JoinUnjoin_Walls" xml:space="preserve">
     <value>Paredes</value>
   </data>
+  <data name="Privacy_EditAccount" xml:space="preserve">
+    <value>Editar minha Conta</value>
+  </data>
+  <data name="Privacy_Information" xml:space="preserve">
+    <value>Nosso time tem acesso somente quando o seu email é recebido atraves da notificacao da loja de aplicativos da Autodesk, quando você baixa o aplicativo. Esta é a única ocasião que temos qualquer identificação de quem está usando o aplicativo, pois depois da instalação, NENHUM tipo de rastreamento é feito, nem mesmo de diagnóstico de erros ou estatísticas. O exato código fonte que pode ser auditado em https://github.com/engthiago/OnboxApp é o que será instalado em seu computador.
+
+Seu e-mail NUNCA será compartilhado com nenhum terceiro de qualquer tipo. Nós, poderemos usar este e-mail, entretanto para:
+1.	Enviar a você informações sobre lançamentos ou atualizações de nossos próprios softwares.
+2.	Enviar a você informações sobre eventos ou publicações que o OnboxApp ou seu criador participarão.
+
+Desde quando o OnboxApp foi lançado em 2015, nenhum e-mail foi enviado e nos somente iremos enviar por algum motivo importante, pois nos também odiamos qualquer tipo de spam.</value>
+  </data>
   <data name="RenumberBeamLevelOptions_Name" xml:space="preserve">
     <value>Nome</value>
   </data>
@@ -465,6 +483,9 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   </data>
   <data name="RenumberBeamLevelOptions_Prefix" xml:space="preserve">
     <value>Prefixo</value>
+  </data>
+  <data name="RenumberBeamLevelOptions_Title" xml:space="preserve">
+    <value>Opções de Pavimento</value>
   </data>
   <data name="RenumberBeamLevelOptions_Use" xml:space="preserve">
     <value>Utilizar</value>
@@ -490,23 +511,44 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   <data name="RenumberBeams_HorizontalsFirst" xml:space="preserve">
     <value>Horizontais Primeiro</value>
   </data>
+  <data name="RenumberBeams_LevelOptions" xml:space="preserve">
+    <value>Opções de Pavimento</value>
+  </data>
   <data name="RenumberBeams_NoRule" xml:space="preserve">
     <value>Sem Regra</value>
   </data>
   <data name="RenumberBeams_Renumber" xml:space="preserve">
     <value>Renumerar</value>
   </data>
+  <data name="RenumberBeams_RenumberingRule" xml:space="preserve">
+    <value>Regra de Renumeração</value>
+  </data>
   <data name="RenumberBeams_Title" xml:space="preserve">
     <value>Renumerar Vigas</value>
+  </data>
+  <data name="RenumberBeams_TypeOptions" xml:space="preserve">
+    <value>Opções de Tipo</value>
   </data>
   <data name="RenumberBeams_VerticalsFirst" xml:space="preserve">
     <value>Verticais Primeiro</value>
   </data>
+  <data name="RenumberColumnsLevelOptions_ColumnsLevelOptions" xml:space="preserve">
+    <value>Opções de Pavimento de Pilares</value>
+  </data>
+  <data name="RenumberColumnsLevelOptions_Label" xml:space="preserve">
+    <value>Rótulo</value>
+  </data>
   <data name="RenumberColumnsLevelOptions_Name" xml:space="preserve">
     <value>Nome</value>
   </data>
+  <data name="RenumberColumnsLevelOptions_Title" xml:space="preserve">
+    <value>Opções de Pavimento</value>
+  </data>
   <data name="RenumberColumnsLevelOptions_Use" xml:space="preserve">
     <value>Utilizar</value>
+  </data>
+  <data name="RenumberColumnsSelection_Concatenation" xml:space="preserve">
+    <value>Concatenação</value>
   </data>
   <data name="RenumberColumnsSelection_Concatenator" xml:space="preserve">
     <value>para</value>
@@ -514,11 +556,32 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   <data name="RenumberColumnsSelection_Downwards" xml:space="preserve">
     <value>Baixo</value>
   </data>
+  <data name="RenumberColumnsSelection_GeneralOptions" xml:space="preserve">
+    <value>Opções gerais</value>
+  </data>
   <data name="RenumberColumnsSelection_Guess" xml:space="preserve">
     <value>Adivinhar</value>
   </data>
+  <data name="RenumberColumnsSelection_LevelLabel" xml:space="preserve">
+    <value>Rótulo de Pavimento</value>
+  </data>
   <data name="RenumberColumnsSelection_LevelLabeler" xml:space="preserve">
     <value>Pavimento</value>
+  </data>
+  <data name="RenumberColumnsSelection_LevelOptions" xml:space="preserve">
+    <value>Opções de Pavimento</value>
+  </data>
+  <data name="RenumberColumnsSelection_NextNumbering" xml:space="preserve">
+    <value>Próxima Numeração</value>
+  </data>
+  <data name="RenumberColumnsSelection_RenumberingRule" xml:space="preserve">
+    <value>Regra de Renumeração</value>
+  </data>
+  <data name="RenumberColumnsSelection_Title" xml:space="preserve">
+    <value>Renumerar Pilares por Seleção</value>
+  </data>
+  <data name="RenumberColumnsSelection_TypeOptions" xml:space="preserve">
+    <value>Opções de Tipo</value>
   </data>
   <data name="RenumberColumnsSelection_Upwards" xml:space="preserve">
     <value>Cima</value>
@@ -538,155 +601,23 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   <data name="RenumberColumnsTypeOptions_Use" xml:space="preserve">
     <value>Utilizar</value>
   </data>
-  <data name="RenumberColumns_Downwards" xml:space="preserve">
-    <value>Baixo</value>
-  </data>
-  <data name="RenumberColumns_LevelConcatenator" xml:space="preserve">
-    <value>para</value>
-  </data>
-  <data name="RenumberColumns_LevelLabeler" xml:space="preserve">
-    <value>Pavimento</value>
-  </data>
-  <data name="RenumberColumns_Renumber" xml:space="preserve">
-    <value>Renumerar</value>
-  </data>
-  <data name="RenumberColumns_Title" xml:space="preserve">
-    <value>Renumerar Pilares</value>
-  </data>
-  <data name="RenumberColumns_Upwards" xml:space="preserve">
-    <value>Cima</value>
-  </data>
-  <data name="RenumberGrids_HorizontalGrids" xml:space="preserve">
-    <value>Eixos Horizontais</value>
-  </data>
-  <data name="RenumberGrids_Letters" xml:space="preserve">
-    <value>Letras</value>
-  </data>
-  <data name="RenumberGrids_NewNumbering" xml:space="preserve">
-    <value>Novo</value>
-  </data>
-  <data name="RenumberGrids_RestoreOrder" xml:space="preserve">
-    <value>Restaurar Ordem</value>
-  </data>
-  <data name="RenumberGrids_Title" xml:space="preserve">
-    <value>Renumerar Eixos</value>
-  </data>
-  <data name="RenumberGrids_VerticalGrids" xml:space="preserve">
-    <value>Eixos Verticais</value>
-  </data>
-  <data name="RenumberParkBlock_All" xml:space="preserve">
-    <value>Todos</value>
-  </data>
-  <data name="RenumberParkBlock_Level" xml:space="preserve">
-    <value>Pavimento</value>
-  </data>
-  <data name="RenumberParkBlock_Prefix" xml:space="preserve">
-    <value>Prefixo</value>
-  </data>
-  <data name="RenumberParkBlock_Title" xml:space="preserve">
-    <value>Renumerar Estacionamentos</value>
-  </data>
-  <data name="RenumberParkClear_All" xml:space="preserve">
-    <value>Todos</value>
-  </data>
-  <data name="RenumberParkClear_Level" xml:space="preserve">
-    <value>Pavimento</value>
-  </data>
-  <data name="RenumberParkLevelOptions_Name" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="RenumberParkLevelOptions_Prefix" xml:space="preserve">
-    <value>Prefixo</value>
-  </data>
-  <data name="RenumberParkLevelOptions_Use" xml:space="preserve">
-    <value>Utilizar</value>
-  </data>
-  <data name="RenumberParkTypeOptions_Name" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="RenumberParkTypeOptions_Prefix" xml:space="preserve">
-    <value>Prefixo</value>
-  </data>
-  <data name="RenumberParkTypeOptions_Restrict" xml:space="preserve">
-    <value>Restringir tipos de estacionamentos a serem renumerados</value>
-  </data>
-  <data name="RenumberParkTypeOptions_Use" xml:space="preserve">
-    <value>Utilizar</value>
-  </data>
-  <data name="RenumberPark_Downwards" xml:space="preserve">
-    <value>Baixo</value>
-  </data>
-  <data name="RenumberPark_Renumber" xml:space="preserve">
-    <value>Renumerar</value>
-  </data>
-  <data name="RenumberPark_Title" xml:space="preserve">
-    <value>Renumerar Estacionamentos</value>
-  </data>
-  <data name="RenumberPark_Upwards" xml:space="preserve">
-    <value>Cima</value>
-  </data>
-  <data name="SlopeGrading_CreateSlopeGradings" xml:space="preserve">
-    <value>Criar Taludes</value>
-  </data>
-  <data name="SlopeGrading_MaxDistance" xml:space="preserve">
-    <value>Distância máxima entre pontos (Metros)</value>
-  </data>
-  <data name="SlopeGrading_Title" xml:space="preserve">
-    <value>Talude por Plataforma</value>
-  </data>
-  <data name="RenumberBeamLevelOptions_Title" xml:space="preserve">
-    <value>Opções de Pavimento</value>
-  </data>
-  <data name="RenumberBeams_LevelOptions" xml:space="preserve">
-    <value>Opções de Pavimento</value>
-  </data>
-  <data name="RenumberBeams_RenumberingRule" xml:space="preserve">
-    <value>Regra de Renumeração</value>
-  </data>
-  <data name="RenumberBeams_TypeOptions" xml:space="preserve">
-    <value>Opções de Tipo</value>
-  </data>
-  <data name="RenumberColumnsLevelOptions_ColumnsLevelOptions" xml:space="preserve">
-    <value>Opções de Pavimento de Pilares</value>
-  </data>
-  <data name="RenumberColumnsLevelOptions_Label" xml:space="preserve">
-    <value>Rótulo</value>
-  </data>
-  <data name="RenumberColumnsLevelOptions_Title" xml:space="preserve">
-    <value>Opções de Pavimento</value>
-  </data>
-  <data name="RenumberColumnsSelection_Concatenation" xml:space="preserve">
-    <value>Concatenação</value>
-  </data>
-  <data name="RenumberColumnsSelection_GeneralOptions" xml:space="preserve">
-    <value>Opções gerais</value>
-  </data>
-  <data name="RenumberColumnsSelection_LevelLabel" xml:space="preserve">
-    <value>Rótulo de Pavimento</value>
-  </data>
-  <data name="RenumberColumnsSelection_LevelOptions" xml:space="preserve">
-    <value>Opções de Pavimento</value>
-  </data>
-  <data name="RenumberColumnsSelection_NextNumbering" xml:space="preserve">
-    <value>Próxima Numeração</value>
-  </data>
-  <data name="RenumberColumnsSelection_RenumberingRule" xml:space="preserve">
-    <value>Regra de Renumeração</value>
-  </data>
-  <data name="RenumberColumnsSelection_Title" xml:space="preserve">
-    <value>Renumerar Pilares por Seleção</value>
-  </data>
-  <data name="RenumberColumnsSelection_TypeOptions" xml:space="preserve">
-    <value>Opções de Tipo</value>
-  </data>
   <data name="RenumberColumns_Concatenation" xml:space="preserve">
     <value>Concatenação</value>
+  </data>
+  <data name="RenumberColumns_Downwards" xml:space="preserve">
+    <value>Baixo</value>
   </data>
   <data name="RenumberColumns_GeneralOptions" xml:space="preserve">
     <value>Opções gerais</value>
   </data>
+  <data name="RenumberColumns_LevelConcatenator" xml:space="preserve">
+    <value>para</value>
+  </data>
   <data name="RenumberColumns_LevelLabel" xml:space="preserve">
     <value>Rótulo de Pavimento</value>
+  </data>
+  <data name="RenumberColumns_LevelLabeler" xml:space="preserve">
+    <value>Pavimento</value>
   </data>
   <data name="RenumberColumns_LevelOptions" xml:space="preserve">
     <value>Opções de Pavimento</value>
@@ -694,14 +625,35 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   <data name="RenumberColumns_NumberingRule" xml:space="preserve">
     <value>Regra de Numeração</value>
   </data>
+  <data name="RenumberColumns_Renumber" xml:space="preserve">
+    <value>Renumerar</value>
+  </data>
+  <data name="RenumberColumns_Title" xml:space="preserve">
+    <value>Renumerar Pilares</value>
+  </data>
   <data name="RenumberColumns_TypeOptions" xml:space="preserve">
     <value>Opções de Tipo</value>
+  </data>
+  <data name="RenumberColumns_Upwards" xml:space="preserve">
+    <value>Cima</value>
+  </data>
+  <data name="RenumberGrids_FlipOrientation" xml:space="preserve">
+    <value>Trocar Orientação</value>
+  </data>
+  <data name="RenumberGrids_HorizontalGrids" xml:space="preserve">
+    <value>Eixos Horizontais</value>
   </data>
   <data name="RenumberGrids_InvertOrientation" xml:space="preserve">
     <value>Inverter orientação</value>
   </data>
+  <data name="RenumberGrids_Letters" xml:space="preserve">
+    <value>Letras</value>
+  </data>
   <data name="RenumberGrids_MoreOptions" xml:space="preserve">
     <value>Mais opções</value>
+  </data>
+  <data name="RenumberGrids_NewNumbering" xml:space="preserve">
+    <value>Novo</value>
   </data>
   <data name="RenumberGrids_Numbers" xml:space="preserve">
     <value>Números</value>
@@ -715,20 +667,47 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   <data name="RenumberGrids_RenumberList" xml:space="preserve">
     <value>Lista de Renumeração</value>
   </data>
+  <data name="RenumberGrids_RestoreOrder" xml:space="preserve">
+    <value>Restaurar Ordem</value>
+  </data>
   <data name="RenumberGrids_RestoreOrientation" xml:space="preserve">
     <value>Resturar Orientação</value>
   </data>
   <data name="RenumberGrids_SubNumbering" xml:space="preserve">
     <value>Subnumeração</value>
   </data>
+  <data name="RenumberGrids_Title" xml:space="preserve">
+    <value>Renumerar Eixos</value>
+  </data>
+  <data name="RenumberGrids_VerticalGrids" xml:space="preserve">
+    <value>Eixos Verticais</value>
+  </data>
+  <data name="RenumberParkBlock_All" xml:space="preserve">
+    <value>Todos</value>
+  </data>
   <data name="RenumberParkBlock_GuessNext" xml:space="preserve">
     <value>Adivinhar Próxima</value>
+  </data>
+  <data name="RenumberParkBlock_Level" xml:space="preserve">
+    <value>Pavimento</value>
   </data>
   <data name="RenumberParkBlock_NextNumbering" xml:space="preserve">
     <value>Próxima Numeração</value>
   </data>
   <data name="RenumberParkBlock_Numbering" xml:space="preserve">
     <value>Numeração</value>
+  </data>
+  <data name="RenumberParkBlock_Prefix" xml:space="preserve">
+    <value>Prefixo</value>
+  </data>
+  <data name="RenumberParkBlock_Title" xml:space="preserve">
+    <value>Renumerar Estacionamentos</value>
+  </data>
+  <data name="RenumberParkClear_All" xml:space="preserve">
+    <value>Todos</value>
+  </data>
+  <data name="RenumberParkClear_Level" xml:space="preserve">
+    <value>Pavimento</value>
   </data>
   <data name="RenumberParkClear_Options" xml:space="preserve">
     <value>Opções</value>
@@ -739,49 +718,73 @@ Originalmente criado em 2014 como uma coleção de macros para melhorar e aceler
   <data name="RenumberParkLevelOptions_LevelIndependent" xml:space="preserve">
     <value>Numeração independente por pavimento</value>
   </data>
+  <data name="RenumberParkLevelOptions_Name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="RenumberParkLevelOptions_Prefix" xml:space="preserve">
+    <value>Prefixo</value>
+  </data>
   <data name="RenumberParkLevelOptions_Title" xml:space="preserve">
     <value>Opções de Pavimento</value>
+  </data>
+  <data name="RenumberParkLevelOptions_Use" xml:space="preserve">
+    <value>Utilizar</value>
+  </data>
+  <data name="RenumberParkTypeOptions_Name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="RenumberParkTypeOptions_Prefix" xml:space="preserve">
+    <value>Prefixo</value>
+  </data>
+  <data name="RenumberParkTypeOptions_Restrict" xml:space="preserve">
+    <value>Restringir tipos de estacionamentos a serem renumerados</value>
   </data>
   <data name="RenumberParkTypeOptions_Title" xml:space="preserve">
     <value>Opções de Tipo</value>
   </data>
+  <data name="RenumberParkTypeOptions_Use" xml:space="preserve">
+    <value>Utilizar</value>
+  </data>
+  <data name="RenumberPark_Downwards" xml:space="preserve">
+    <value>Baixo</value>
+  </data>
   <data name="RenumberPark_LevelOptions" xml:space="preserve">
     <value>Opções de Nível</value>
+  </data>
+  <data name="RenumberPark_Renumber" xml:space="preserve">
+    <value>Renumerar</value>
   </data>
   <data name="RenumberPark_RenumberingOrder" xml:space="preserve">
     <value>Ordem de numeração</value>
   </data>
+  <data name="RenumberPark_Title" xml:space="preserve">
+    <value>Renumerar Estacionamentos</value>
+  </data>
   <data name="RenumberPark_TypeOptions" xml:space="preserve">
     <value>Opções de Tipo</value>
+  </data>
+  <data name="RenumberPark_Upwards" xml:space="preserve">
+    <value>Cima</value>
+  </data>
+  <data name="SlopeGrading_CreateSlopeGradings" xml:space="preserve">
+    <value>Criar Taludes</value>
   </data>
   <data name="SlopeGrading_MaxAngle" xml:space="preserve">
     <value>Ângulo de inclinação máxima (Graus)</value>
   </data>
+  <data name="SlopeGrading_MaxDistance" xml:space="preserve">
+    <value>Distância máxima entre pontos (Metros)</value>
+  </data>
   <data name="SlopeGrading_MultiplePads" xml:space="preserve">
     <value>Continuar Criando</value>
   </data>
-  <data name="BeamsForBuildingLevelOptions_MatchCase" xml:space="preserve">
-    <value>Sensível ao Caso</value>
-  </data>
-  <data name="BeamsFromWalls_ToTheHighestCasing" xml:space="preserve">
-    <value>Para a Maior Abertura</value>
-  </data>
-  <data name="RenumberGrids_FlipOrientation" xml:space="preserve">
-    <value>Trocar Orientação</value>
-  </data>
-  <data name="Privacy_EditAccount" xml:space="preserve">
-    <value>Editar minha Conta</value>
-  </data>
-  <data name="Privacy_Information" xml:space="preserve">
-    <value>Nosso time tem acesso somente quando o seu email é recebido atraves da notificacao da loja de aplicativos da Autodesk, quando você baixa o aplicativo. Esta é a única ocasião que temos qualquer identificação de quem está usando o aplicativo, pois depois da instalação, NENHUM tipo de rastreamento é feito, nem mesmo de diagnóstico de erros ou estatísticas. O exato código fonte que pode ser auditado em https://github.com/engthiago/OnboxApp é o que será instalado em seu computador.
-
-Seu e-mail NUNCA será compartilhado com nenhum terceiro de qualquer tipo. Nós, poderemos usar este e-mail, entretanto para:
-1.	Enviar a você informações sobre lançamentos ou atualizações de nossos próprios softwares.
-2.	Enviar a você informações sobre eventos ou publicações que o OnboxApp ou seu criador participarão.
-
-Desde quando o OnboxApp foi lançado em 2015, nenhum e-mail foi enviado e nos somente iremos enviar por algum motivo importante, pois nos também odiamos qualquer tipo de spam.</value>
+  <data name="SlopeGrading_Title" xml:space="preserve">
+    <value>Talude por Plataforma</value>
   </data>
   <data name="ToposolidSolidGrading_Title" xml:space="preserve">
     <value>Talude topográfico por Piso</value>
+  </data>
+  <data name="About_LetsBIMtogether" xml:space="preserve">
+    <value>Esta versão bifurcada é mantida por:</value>
   </data>
 </root>

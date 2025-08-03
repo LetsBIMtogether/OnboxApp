@@ -34,6 +34,23 @@
                            VerticalAlignment="Center"
                            FontWeight="Bold" />
             </DockPanel>
+            <StackPanel>
+                <Label Content="{x:Static p:WindowLanguage.About_LetsBIMtogether}" />
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Margin="200,0,0,0">
+                    <Hyperlink NavigateUri="https://www.LetsBIMtogether.com" RequestNavigate="Hyperlink_RequestNavigate">
+                        www.LetsBIMtogether.com
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Margin="200,0,0,0">
+                    <Hyperlink NavigateUri="https://www.github.com/LetsBIMtogether/OnboxApp" RequestNavigate="Hyperlink_RequestNavigate">
+                        www.github.com/LetsBIMtogether/OnboxApp
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
             <StackPanel Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="btnInfo" Content="{x:Static p:WindowLanguage.About_Website}"  Width="90" Height="24" HorizontalAlignment="Right" Margin="10,0,0,0" Click="btnInfo_Click"/>
                 <Button x:Name="btnOK" Content="{x:Static p:WindowLanguage.Common_OK}" Width="90" Height="24" HorizontalAlignment="Right" Margin="10,0,0,0" Click="btnOK_Click"/>
