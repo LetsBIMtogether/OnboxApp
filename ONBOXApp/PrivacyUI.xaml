@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ONBOXAppl"
-        Icon="/ONBOXAppl;component/Resources/onBox32.png"
+        Icon="/ONBOXAppl;component/ResourcesWPF/onBox32.png"
         xmlns:p="clr-namespace:ONBOXAppl.Properties"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"

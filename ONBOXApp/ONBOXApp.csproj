@@ -449,6 +449,190 @@
 		
 		<Content Include="App.config" />
 		
+		<Resource Include="ResourcesWPF\Autodesk-logo-and-wordmark.png" />
+		
+		<Resource Include="ResourcesWPF\Autodesk16.png" />
+		
+		<Resource Include="ResourcesWPF\Autodesk32New.png" />
+		
+		<Resource Include="ResourcesWPF\btnBeamsCopyLevels.png" />
+		
+		<Resource Include="ResourcesWPF\btnBeamsCopyLevels16.png" />
+		
+		<Resource Include="ResourcesWPF\btnBeamsFromBuilding16.png" />
+		
+		<Resource Include="ResourcesWPF\btnBeamsFromBuilding32 (1).png" />
+		
+		<Resource Include="ResourcesWPF\btnBeamsFromBuilding32.png" />
+		
+		<Resource Include="ResourcesWPF\btnColumnsFromDWG16.png" />
+		
+		<Resource Include="ResourcesWPF\btnColumnsFromDWG32.png" />
+		
+		<Resource Include="ResourcesWPF\btnColumnsToBeams16.png" />
+		
+		<Resource Include="ResourcesWPF\btnColumnsToBeams32.png" />
+		
+		<Resource Include="ResourcesWPF\btnInfo16.png" />
+		
+		<Resource Include="ResourcesWPF\btnInfo32.png" />
+		
+		<Resource Include="ResourcesWPF\btnJoinMultiple.png" />
+		
+		<Resource Include="ResourcesWPF\btnJoinMultiple16.png" />
+		
+		<Resource Include="ResourcesWPF\btnJoinSelectMultiple.png" />
+		
+		<Resource Include="ResourcesWPF\btnJoinSelectMultiple16.png" />
+		
+		<Resource Include="ResourcesWPF\btnPackage.png" />
+		
+		<Resource Include="ResourcesWPF\btnPackage16.png" />
+		
+		<Resource Include="ResourcesWPF\btnPackage32.png" />
+		
+		<Resource Include="ResourcesWPF\btnProjectExamplesFolder.png" />
+		
+		<Resource Include="ResourcesWPF\btnProjectExamplesFolder16.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenameColumns16.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenameColumns32.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenameColumns32Select.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberBeams16.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberBeams32.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberBlockParking16.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberBlockParking32.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberColumns16.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberDeleteParking16.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberDeleteParking32.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberGrid16.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberGrid32.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberGrid36.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberParking16.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumberParking32.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumGrids32.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumGrids34.png" />
+		
+		<Resource Include="ResourcesWPF\btnRenumGrids36.png" />
+		
+		<Resource Include="ResourcesWPF\btnShowSelect.png" />
+		
+		<Resource Include="ResourcesWPF\btnTopoFromDWG.png" />
+		
+		<Resource Include="ResourcesWPF\btnTopoFromDWG16.png" />
+		
+		<Resource Include="ResourcesWPF\btnTopoFromPointCloud16.png" />
+		
+		<Resource Include="ResourcesWPF\btnTopoFromPointCloud32.png" />
+		
+		<Resource Include="ResourcesWPF\btnTopoSlope.png" />
+		
+		<Resource Include="ResourcesWPF\btnTopoSlope16.png" />
+		
+		<Resource Include="ResourcesWPF\btnWallsToBeams16.png" />
+		
+		<Resource Include="ResourcesWPF\btnWallsToBeams32.png" />
+		
+		<Resource Include="ResourcesWPF\btnWallsToBeamsCreate32.png" />
+		
+		<Resource Include="ResourcesWPF\btnWallsToBeamsUpdate16.png" />
+		
+		<Resource Include="ResourcesWPF\btnWallsToBeamsUpdate32.png" />
+		
+		<Resource Include="ResourcesWPF\Close.png" />
+		
+		<Resource Include="ResourcesWPF\Constraints0.png" />
+		
+		<Resource Include="ResourcesWPF\Constraints1.png" />
+		
+		<Resource Include="ResourcesWPF\CreateBeam.png" />
+		
+		<Resource Include="ResourcesWPF\Error.png" />
+		
+		<Resource Include="ResourcesWPF\facebook.png" />
+		
+		<Resource Include="ResourcesWPF\facebookAccount.png" />
+		
+		<Resource Include="ResourcesWPF\Join.png" />
+		
+		<Resource Include="ResourcesWPF\layerBucket.png" />
+		
+		<Resource Include="ResourcesWPF\LoadFamily.png" />
+		
+		<Resource Include="ResourcesWPF\loadFamily30.png" />
+		
+		<Resource Include="ResourcesWPF\Locker0.png" />
+		
+		<Resource Include="ResourcesWPF\Locker1.png" />
+		
+		<Resource Include="ResourcesWPF\mail.png" />
+		
+		<Resource Include="ResourcesWPF\MouseMultipleCleanEnabled.png" />
+		
+		<Resource Include="ResourcesWPF\MouseMultipleSelectEnabled.png" />
+		
+		<Resource Include="ResourcesWPF\MousePointerSelectDisabled.png" />
+		
+		<Resource Include="ResourcesWPF\MousePointerSelectEnabled.png" />
+		
+		<Resource Include="ResourcesWPF\onBox16.png" />
+		
+		<Resource Include="ResourcesWPF\onBox32.png" />
+		
+		<Resource Include="ResourcesWPF\onBox32New.png" />
+		
+		<Resource Include="ResourcesWPF\OnboxAppIcon.png" />
+		
+		<Resource Include="ResourcesWPF\ONBOX_Icon.png" />
+		
+		<Resource Include="ResourcesWPF\PlaceHolder16.png" />
+		
+		<Resource Include="ResourcesWPF\PlaceHolder32.png" />
+		
+		<Resource Include="ResourcesWPF\Points2.png" />
+		
+		<Resource Include="ResourcesWPF\privacy16.png" />
+		
+		<Resource Include="ResourcesWPF\privacy32.png" />
+		
+		<Resource Include="ResourcesWPF\Reload.png" />
+		
+		<Resource Include="ResourcesWPF\RemoveBeam.png" />
+		
+		<Resource Include="ResourcesWPF\Section0.png" />
+		
+		<Resource Include="ResourcesWPF\Section1.png" />
+		
+		<Resource Include="ResourcesWPF\Tick.png" />
+		
+		<Resource Include="ResourcesWPF\TickFlip.png" />
+		
+		<Resource Include="ResourcesWPF\tickNull (1).png" />
+		
+		<Resource Include="ResourcesWPF\tickNull.png" />
+		
+		<Resource Include="ResourcesWPF\UpdateOnbox16.png" />
+		
+		<Resource Include="ResourcesWPF\UpdateOnbox32.png" />
+		
+		<Resource Include="ResourcesWPF\Warning.png" />
+		
 		<Resource Include="ResourcesWPF\youtube.png" />
 		<Resource Include="ResourcesWPF\onbox_icon.ico" />
 		<Resource Include="ResourcesWPF\ONBOXApps.png" />

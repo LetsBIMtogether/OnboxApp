@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:p="clr-namespace:ONBOXAppl.Properties"
         mc:Ignorable="d"
-        Icon="/ONBOXAppl;component/Resources/onBox32.png"
+        Icon="/ONBOXAppl;component/ResourcesWPF/onBox32.png"
         Title="{x:Static p:WindowLanguage.RenumberGrids_Title}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded_1" SizeToContent="WidthAndHeight">
 
     <Window.Resources>

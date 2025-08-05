@@ -49,7 +49,7 @@ namespace ONBOXAppl
             if (currentIsJustWarning)
             {
                 stackReport.Visibility = Visibility.Collapsed;
-                imgWarningType.Source = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/Warning.png", UriKind.Absolute));
+                imgWarningType.Source = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/ResourcesWPF/Warning.png", UriKind.Absolute));
             }
         }
 

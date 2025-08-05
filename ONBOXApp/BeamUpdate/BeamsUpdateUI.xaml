@@ -14,7 +14,7 @@
                 <Button x:Name="btnReload" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="23" Width="23" Click="btnReload_Click">
                     <StackPanel Height="16" Width="16">
                         <StackPanel.Background>
-                            <ImageBrush Stretch= "Uniform" ImageSource="/ONBOXAppl;component/Resources/Reload.png" />
+                            <ImageBrush Stretch= "Uniform" ImageSource="/ONBOXAppl;component/ResourcesWPF/Reload.png" />
                         </StackPanel.Background>
                     </StackPanel>
                 </Button>

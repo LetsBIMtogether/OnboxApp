@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:p="clr-namespace:ONBOXAppl.Properties"
-      Icon="/ONBOXAppl;component/Resources/onBox32.png"
+      Icon="/ONBOXAppl;component/ResourcesWPF/onBox32.png"
       mc:Ignorable="d"
         Title="{x:Static p:WindowLanguage.BeamsFromColumns_Title}"
         Width="280" MinWidth="230" MinHeight="150" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" Loaded="BeamFromColumnsWindow_Loaded" Topmost="True" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Closed="BeamFromColumnsWindow_Closed" SizeToContent="Height">
@@ -22,7 +22,7 @@
         <Button x:Name="btnReload" Margin="0,11,10,0" VerticalAlignment="Top" Height="23" Click="btnReload_Click" Background="#FFDDDDDD" HorizontalAlignment="Right" Width="24">
             <Grid Height="16" Width="16">
                 <Grid.Background>
-                    <ImageBrush Stretch="Uniform" ImageSource="/ONBOXAppl;component/Resources/Reload.png"/>
+                    <ImageBrush Stretch="Uniform" ImageSource="/ONBOXAppl;component/ResourcesWPF/Reload.png"/>
                 </Grid.Background>
             </Grid>
         </Button>
@@ -60,7 +60,7 @@
         <Button x:Name="btnLoadFamily" HorizontalAlignment="Right" Margin="0,11,39,0" VerticalAlignment="Top" Width="24" Height="23" Click="btnLoadFamily_Click" BorderBrush="#FF707070">
             <StackPanel Height="16" Width="16">
                 <StackPanel.Background>
-                    <ImageBrush Stretch= "Uniform" ImageSource="/ONBOXAppl;component/Resources/LoadFamily.png" />
+                    <ImageBrush Stretch= "Uniform" ImageSource="/ONBOXAppl;component/ResourcesWPF/LoadFamily.png" />
                 </StackPanel.Background>
             </StackPanel>
         </Button>

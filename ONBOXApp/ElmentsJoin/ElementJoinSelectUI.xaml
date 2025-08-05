@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ONBOXAppl"
         xmlns:p="clr-namespace:ONBOXAppl.Properties"
-        Icon="/ONBOXAppl;component/Resources/onBox32.png"
+        Icon="/ONBOXAppl;component/ResourcesWPF/onBox32.png"
         mc:Ignorable="d"
         Title="{x:Static p:WindowLanguage.JoinUnjoinSelected_Title}" Topmost="True" ResizeMode="NoResize" Closed="JoinElementsWindow_Closed" Loaded="JoinElementsWindow_Loaded" SizeToContent="WidthAndHeight">
     <StackPanel Margin="10">
@@ -22,12 +22,12 @@
                         </ComboBox>
                         <Button Margin="5,0,0,0" x:Name="btnSelectFirstElementsJoin" MaxWidth="28" Click="btnSelectFirstElementsJoin_Click">
                             <StackPanel>
-                                <Image Source="/ONBOXAppl;component/Resources/MouseMultipleSelectEnabled.png" />
+                                <Image Source="/ONBOXAppl;component/ResourcesWPF/MouseMultipleSelectEnabled.png" />
                             </StackPanel>
                         </Button>
                         <Button Margin="5,0,0,0" x:Name="btnShowFirstElements" MinWidth="28" MaxWidth="28" Click="btnShowFirstElements_Click">
                             <StackPanel>
-                                <Image Source="/ONBOXAppl;component/Resources/btnShowSelect.png" />
+                                <Image Source="/ONBOXAppl;component/ResourcesWPF/btnShowSelect.png" />
                             </StackPanel>
                         </Button>
                     </DockPanel>
@@ -35,7 +35,7 @@
                         <Label x:Name="lblFirstElementsSelected" Content="" FontWeight="Bold"/>
                         <Button x:Name="btnDeSelectFirstElements" HorizontalAlignment="Right" MinWidth="28" MaxWidth="28" Click="btnDeSelectFirstElements_Click">
                             <StackPanel>
-                                <Image Source="/ONBOXAppl;component/Resources/MouseMultipleCleanEnabled.png" />
+                                <Image Source="/ONBOXAppl;component/ResourcesWPF/MouseMultipleCleanEnabled.png" />
                             </StackPanel>
                         </Button>
                     </DockPanel>
@@ -53,12 +53,12 @@
                         </ComboBox>
                         <Button Margin="5,0,0,0" x:Name="btnSelectSecondElementsJoin" MaxWidth="28" Click="btnSelectSecondElementsJoin_Click">
                             <StackPanel>
-                                <Image Source="/ONBOXAppl;component/Resources/MouseMultipleSelectEnabled.png" />
+                                <Image Source="/ONBOXAppl;component/ResourcesWPF/MouseMultipleSelectEnabled.png" />
                             </StackPanel>
                         </Button>
                         <Button Margin="5,0,0,0" x:Name="btnShowSecondElements" MinWidth="28" MaxWidth="28" Click="btnShowSecondElements_Click">
                             <StackPanel>
-                                <Image Source="/ONBOXAppl;component/Resources/btnShowSelect.png" />
+                                <Image Source="/ONBOXAppl;component/ResourcesWPF/btnShowSelect.png" />
                             </StackPanel>
                         </Button>
                     </DockPanel>
@@ -66,7 +66,7 @@
                         <Label x:Name="lblSecondElementsSelected" Content="" FontWeight="Bold"/>
                         <Button x:Name="btnDeSelectSecondElements" HorizontalAlignment="Right" MinWidth="28" MaxWidth="28" Click="btnDeSelectSecondElements_Click">
                             <StackPanel>
-                                <Image Source="/ONBOXAppl;component/Resources/MouseMultipleCleanEnabled.png" />
+                                <Image Source="/ONBOXAppl;component/ResourcesWPF/MouseMultipleCleanEnabled.png" />
                             </StackPanel>
                         </Button>
                     </DockPanel>
