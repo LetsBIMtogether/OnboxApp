@@ -525,4 +525,9 @@
 		<Message Importance="high" Text="*** Running post-dispatch build for Revit 2023 ***" />
 		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2023" />
 	</Target>
+
+	<Target Name="Build2026" AfterTargets="DispatchToInnerBuilds">
+		<Message Importance="high" Text="*** Running post-dispatch build for Revit 2026 ***" />
+		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2026" />
+	</Target>
 </Project>
