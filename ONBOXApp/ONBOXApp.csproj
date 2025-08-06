@@ -17,9 +17,9 @@
 		<AssemblyName>ONBOXAppl</AssemblyName>
 		<RuntimeIdentifiers>win</RuntimeIdentifiers>
 
-		<TargetFrameworks>net47;net48;net8.0-windows;</TargetFrameworks>			<!--net8.0-windows;-->
+		<TargetFrameworks>net47;net48;net8.0-windows;</TargetFrameworks>		
 		<RevitVersion Condition=" '$(RevitVersion)' == '' ">2024</RevitVersion>
-		<DefineConstants>REVIT$(RevitVersion)</DefineConstants>						<!--;WINFORMS-->
+		<DefineConstants>REVIT$(RevitVersion)</DefineConstants><!--;WINFORMS-->
 		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
 		
 		<PlatformTarget>x64</PlatformTarget>
@@ -28,7 +28,7 @@
 		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
 		<EnableDefaultItems>false</EnableDefaultItems>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<OutputPath>bin\$(Configuration)\$(RevitVersion)</OutputPath>
+		<OutputPath>..\bin\$(Configuration)\$(RevitVersion)</OutputPath>
 		<BuildInParallel>false</BuildInParallel>
 	</PropertyGroup>
 	
@@ -36,12 +36,14 @@
 	
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net47'">
 		<RevitVersion>2019</RevitVersion>
-		<OutputPath>bin\$(Configuration)\$(RevitVersion)</OutputPath>
+		<OutputPath>..\bin\$(Configuration)\$(RevitVersion)</OutputPath>
+		<!--<OutputPath>bin\$(Configuration)\$(RevitVersion)</OutputPath>-->
 	</PropertyGroup>
 	
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
 		<RevitVersion>2025</RevitVersion>
 		<UseWPF>true</UseWPF>
+		<OutputPath>..\bin\$(Configuration)\$(RevitVersion)</OutputPath>
 	</PropertyGroup>
 	
 	<!-- Debug One configuration targets net48 for a single Revit version (e.g., 2024) -->
@@ -101,6 +103,7 @@
 		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2023.*" Condition=" '$(RevitVersion)' == '2023' " PrivateAssets="All" />
 		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2024.*" Condition=" '$(RevitVersion)' == '2024' " PrivateAssets="All" />
 		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2025.*" Condition=" '$(RevitVersion)' == '2025' " PrivateAssets="All" />
+		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2026.*" Condition=" '$(RevitVersion)' == '2026' " PrivateAssets="All" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2019.*" Condition=" '$(RevitVersion)' == '2019' " PrivateAssets="All" />
@@ -110,6 +113,7 @@
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2023.*" Condition=" '$(RevitVersion)' == '2023' " PrivateAssets="All" />
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2024.*" Condition=" '$(RevitVersion)' == '2024' " PrivateAssets="All" />
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2025.*" Condition=" '$(RevitVersion)' == '2025' " PrivateAssets="All" />
+		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2026.*" Condition=" '$(RevitVersion)' == '2026' " PrivateAssets="All" />
 	</ItemGroup>
 	
 	<PropertyGroup Condition="'$(RevitVersion)' != '2019' AND '$(RevitVersion)' != '2020' AND '$(RevitVersion)' != '2021' AND '$(RevitVersion)' != '2022' AND '$(RevitVersion)' != '2023' AND '$(RevitVersion)' != '2024'">
@@ -712,6 +716,6 @@
 
 	<Target Name="Build2026" AfterTargets="DispatchToInnerBuilds">
 		<Message Importance="high" Text="*** Running post-dispatch build for Revit 2026 ***" />
-		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2026" />
+		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net8.0-windows;RevitVersion=2026" />
 	</Target>
 </Project>
