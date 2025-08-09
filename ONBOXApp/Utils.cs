@@ -4,6 +4,7 @@ using Autodesk.Revit.UI;
 using System.Collections.Generic;
 using System.Linq;
 using ONBOXAppl;
+using System.Diagnostics;
 
 namespace Utils
 {
@@ -1076,6 +1077,39 @@ namespace Utils
             }
 
             return resolvedInt;
+        }
+    }
+
+    // AG START
+
+    // Static class to open URLs in the default web browser
+    static class UrlOpener
+    {
+        public static void Open(string url)
+        {
+            if (!Uri.TryCreate(url, UriKind.Absolute, out var u))
+                u = new Uri("http://" + url.Trim());
+
+            try
+            {
+                // Fast path: works in most contexts
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = u.AbsoluteUri,
+                    UseShellExecute = true
+                });
+            }
+            catch
+            {
+                // Shell-resolved fallback: always asks Windows for the default handler
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $"/c start \"\" \"{u.AbsoluteUri}\"",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                });
+            }
         }
     }
 }

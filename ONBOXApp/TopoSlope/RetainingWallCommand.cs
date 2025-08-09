@@ -1,4 +1,4 @@
-﻿#if R2024
+﻿#if REVIT2024UP
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;

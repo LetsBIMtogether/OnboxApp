@@ -1,4 +1,4 @@
-﻿#if R2024
+﻿#if REVIT2024UP
 
 using System.Collections.Generic;
 using Autodesk.Revit.DB;

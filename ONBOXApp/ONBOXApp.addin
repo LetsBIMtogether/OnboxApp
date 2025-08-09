@@ -6,7 +6,7 @@
 
     <Name>ONBOX Application</Name>
 
-    <Assembly>"I:/5 PROJECTS/11 GITHUB/1 ONBOX APP/OnboxApp/bin/Debug/2023/ONBOXAppl.dll"</Assembly>
+    <Assembly>"ONBOX/ONBOXAppl.dll"</Assembly>
 
     <AddInId>33DC8041-8285-4A01-B0A3-63DCC326A4C9</AddInId>
 

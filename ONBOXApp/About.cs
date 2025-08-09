@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Xml;
 using System.Diagnostics;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -22,20 +23,23 @@ namespace ONBOXAppl
 
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            UrlOpener.Open("http://www.onboxdesign.com.br/");
 
-#if REVIT2025UP
+            /*
+            #if REVIT2025UP
 
-                var startInfo = new ProcessStartInfo {
-                    FileName = "http://www.onboxdesign.com.br/",
-                    UseShellExecute = true
-                };
-                Process.Start(startInfo);
+                            var startInfo = new ProcessStartInfo {
+                                FileName = "http://www.onboxdesign.com.br/",
+                                UseShellExecute = true
+                            };
+                            Process.Start(startInfo);
 
-#else
+            #else
 
-            System.Diagnostics.Process.Start("http://www.onboxdesign.com.br/");
+                        System.Diagnostics.Process.Start("http://www.onboxdesign.com.br/");
 
-#endif
+            #endif
+            */
 
             return Result.Succeeded;
         }

@@ -120,6 +120,11 @@
 		<DefineConstants>$(DefineConstants);REVIT2025UP</DefineConstants>
 		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
 	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(RevitVersion)' != '2019' AND '$(RevitVersion)' != '2020' AND '$(RevitVersion)' != '2021' AND '$(RevitVersion)' != '2022' AND '$(RevitVersion)' != '2023'">
+		<DefineConstants>$(DefineConstants);REVIT2024UP</DefineConstants>
+		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
+	</PropertyGroup>
 	
 	<PropertyGroup Condition="$(Configuration.Contains('Debug'))">
 		<DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
@@ -416,6 +421,7 @@
 			<SubType>Designer</SubType>
 		</Page>
 	</ItemGroup>
+	
 	<!-- Resources -->
 	<ItemGroup>
 		<EmbeddedResource Include="Properties\HelpLinks.pt-BR.resx">
@@ -446,12 +452,13 @@
 			<Generator>PublicResXFileCodeGenerator</Generator>
 			<LastGenOutput>WindowLanguage.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
+		<None Include="ONBOXApp.addin" />
 		<None Include="Properties\Settings.settings">
 			<Generator>SettingsSingleFileGenerator</Generator>
 			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
 		</None>
 		
-		<Content Include="App.config" />
+		<Content Include="PackageContents.xml" />
 		
 		<Resource Include="ResourcesWPF\Autodesk-logo-and-wordmark.png" />
 		
@@ -638,8 +645,11 @@
 		<Resource Include="ResourcesWPF\Warning.png" />
 		
 		<Resource Include="ResourcesWPF\youtube.png" />
+		
 		<Resource Include="ResourcesWPF\onbox_icon.ico" />
+		
 		<Resource Include="ResourcesWPF\ONBOXApps.png" />
+		
 		<EmbeddedResource Include="OnboxAppInfo.xml" />
 	</ItemGroup>
 	
@@ -678,13 +688,16 @@
 	<Target Name="CopyToBundle" AfterTargets="AfterBuild" Condition="'$(Configuration)' == 'Release'">
 		<Message Importance="high" Text="Copying results to bundle for Revit $(RevitVersion)" />
 		<ItemGroup>
-			<AddinFiles Include="$(OutputPath)\*.addin" />
-			<OutputFiles Include="$(OutputPath)\*.dll;$(OutputPath)\*.pdb" />
+			<OutputFiles Include="$(OutputPath)\*.dll;" />
+			<AddinFile Include="$(MSBuildProjectDirectory)\ONBOXApp.addin" />
+			<PackageFile Include="$(MSBuildProjectDirectory)\PackageContents.xml" />
 		</ItemGroup>
 		<MakeDir Directories="$(SolutionDir)OnboxApp.bundle\Contents\$(RevitVersion)\ONBOX" Condition="!Exists('$(SolutionDir)OnboxApp.bundle\Contents\$(RevitVersion)\ONBOX')" />
-		<Copy SourceFiles="@(AddinFiles);@(OutputFiles)" DestinationFolder="$(SolutionDir)OnboxApp.bundle\Contents\$(RevitVersion)\ONBOX" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
+		<Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(SolutionDir)OnboxApp.bundle\Contents\$(RevitVersion)\ONBOX" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
+		<Copy SourceFiles="@(AddinFile)" DestinationFolder="$(SolutionDir)OnboxApp.bundle\Contents\$(RevitVersion)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
+		<Copy SourceFiles="@(PackageFile)" DestinationFolder="$(SolutionDir)OnboxApp.bundle" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
 	</Target>
-	
+
 	<!-- Clean add-ins from AppData -->
 	<Target Name="CleanAddinsInAppData" AfterTargets="AfterClean">
 		<ItemGroup>
