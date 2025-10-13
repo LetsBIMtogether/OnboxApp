@@ -28,10 +28,10 @@
   </Components>
     <Components Description="2025 parts">
     <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2025" SeriesMax="R2025" />
-    <ComponentEntry AppName="OnboxApp" Version="1.1.6.0" ModuleName="./Contents/2024/ONBOXApp.addin" AppDescription="OnboxApp" />
+    <ComponentEntry AppName="OnboxApp" Version="1.1.6.0" ModuleName="./Contents/2025/ONBOXApp.addin" AppDescription="OnboxApp" />
   </Components>
     <Components Description="2026 parts">
     <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2026" SeriesMax="R2026" />
-    <ComponentEntry AppName="OnboxApp" Version="1.1.6.0" ModuleName="./Contents/2024/ONBOXApp.addin" AppDescription="OnboxApp" />
+    <ComponentEntry AppName="OnboxApp" Version="1.1.6.0" ModuleName="./Contents/2026/ONBOXApp.addin" AppDescription="OnboxApp" />
   </Components>
 </ApplicationPackage>

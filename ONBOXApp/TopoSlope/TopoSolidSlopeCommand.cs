@@ -1,4 +1,4 @@
-﻿#if R2024
+﻿#if REVIT2024UP
 
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using ONBOXAppl.Properties;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -244,7 +245,7 @@ namespace ONBOXAppl
 
                     topoSolids.Add(topoSolid);
 
-                    topoSolid.GetSlabShapeEditor().DrawPoint(point);
+                    topoSolid.GetSlabShapeEditor().Ext_AddPoint(point);
                 }
 
                 foreach (var tuple in offsetOuterLoopPoints)
@@ -254,7 +255,7 @@ namespace ONBOXAppl
 
                     topoSolids.Add(topoSolid);
 
-                    topoSolid.GetSlabShapeEditor().DrawPoint(point);
+                    topoSolid.GetSlabShapeEditor().Ext_AddPoint(point);
                 }
 
                 foreach (var toposolid in topoSolids)

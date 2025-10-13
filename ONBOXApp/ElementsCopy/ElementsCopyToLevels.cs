@@ -7,6 +7,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using Autodesk.Revit.Attributes;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -49,7 +50,7 @@ namespace ONBOXAppl
                     t.Start();
                     foreach (LevelInfo currentLevelInfo in selectedLevelsInfo)
                     {
-                        ElementId currentLevelID = new ElementId(currentLevelInfo.levelId);
+                        ElementId currentLevelID = currentLevelInfo.levelId.Ext_UniversalElemID();
                         Level currentLevel = doc.GetElement(currentLevelID) as Level;
 
                         if (currentUI.checkEraseBeamsOnTarget.IsChecked == true)

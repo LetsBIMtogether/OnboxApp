@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -220,7 +221,7 @@ namespace ONBOXAppl
 
                         #endregion
 
-                        Family currentFamily = doc.GetElement(new ElementId(currentUI.SelectedBeamFamilyID)) as Family;
+                        Family currentFamily = doc.GetElement(currentUI.SelectedBeamFamilyID.Ext_UniversalElemID()) as Family;
 
                         if (currentFamily == null)
                         {
@@ -519,7 +520,7 @@ namespace ONBOXAppl
             foreach (Family currentElem in allColumnFamiliesFilt)
             {
                 string currentFamilyName = (currentElem as Family).Name;
-                int currentFamilyID = currentElem.Id.IntegerValue;
+                int currentFamilyID = currentElem.Id.Ext_IntValue();
                 System.Drawing.Bitmap currentFirstTypeBitmap = (uidoc.Document.GetElement(((currentElem as Family)
                     .GetFamilySymbolIds()).First()) as FamilySymbol).GetPreviewImage(new System.Drawing.Size(60, 60));
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI.Selection;
 using Autodesk.Revit.Attributes;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -71,7 +72,7 @@ namespace ONBOXAppl
                     foreach (Level currentLevel in allLevel)
                     {
 
-                        LevelInfo lvlInfo = ONBOXApplication.storedBeamLevelInfo.Where(l => l.levelId == currentLevel.Id.IntegerValue).First() as LevelInfo;
+                        LevelInfo lvlInfo = ONBOXApplication.storedBeamLevelInfo.Where(l => l.levelId == currentLevel.Id.Ext_IntValue()).First() as LevelInfo;
 
                         //checks if the current level will be numbered
                         if (lvlInfo.willBeNumbered == false)
@@ -124,7 +125,7 @@ namespace ONBOXAppl
 
             foreach (Element currentBeamElem in targetBeams)
             {
-                BeamTypesInfo beamInfo = ONBOXApplication.storedBeamTypesInfo.Where(b => b.TypeId == currentBeamElem.GetTypeId().IntegerValue).First();
+                BeamTypesInfo beamInfo = ONBOXApplication.storedBeamTypesInfo.Where(b => b.TypeId == currentBeamElem.GetTypeId().Ext_IntValue()).First();
                 if (beamInfo.WillBeNumbered == false)
                 {
                     continue;
@@ -218,7 +219,7 @@ namespace ONBOXAppl
             {
                 if (!allUsedBeamTypesIDs.Contains(currentElement.GetTypeId()))
                 {
-                    int typeID = currentElement.GetTypeId().IntegerValue;
+                    int typeID = currentElement.GetTypeId().Ext_IntValue();
                     string typeName = currentElement.Name;
                     BeamTypesInfo currentBeamInfo = new BeamTypesInfo() { TypeName = typeName, TypeId = typeID, WillBeNumbered = true, TypePrefix = "" };
 

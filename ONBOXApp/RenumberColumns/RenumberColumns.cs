@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autodesk.Revit.UI.Selection;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -142,19 +143,19 @@ namespace ONBOXAppl
                                     continue;
                                 }
 
-                                ColumnTypesInfo currentColumnTypeInfo = ONBOXApplication.storedColumnTypesInfo.Where(colInfo => colInfo.TypeId == currentColumn.GetTypeId().IntegerValue).First();
+                                ColumnTypesInfo currentColumnTypeInfo = ONBOXApplication.storedColumnTypesInfo.Where(colInfo => colInfo.TypeId == currentColumn.GetTypeId().Ext_IntValue()).First();
                                 if (currentColumnTypeInfo.WillBeNumbered == false)
                                     continue;
 
-                                LevelInfo currentLevelInfo = ONBOXApplication.storedColumnLevelInfo.Where(lvlInfo => lvlInfo.levelId == allLevels.ElementAt(i).Id.IntegerValue).First();
+                                LevelInfo currentLevelInfo = ONBOXApplication.storedColumnLevelInfo.Where(lvlInfo => lvlInfo.levelId == allLevels.ElementAt(i).Id.Ext_IntValue()).First();
                                 if (currentLevelInfo.willBeNumbered == false)
                                     continue;
 
                                 Element currenColumnTopLevel = doc.GetElement(currentColumn.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_PARAM).AsElementId());
                                 allUsedColumnsIDs.Add(currentColumn.Id);
 
-                                string columnBaseSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currentColumnBaseLevel.Id.IntegerValue).First().levelPrefix;
-                                string columnTopSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currenColumnTopLevel.Id.IntegerValue).First().levelPrefix;
+                                string columnBaseSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currentColumnBaseLevel.Id.Ext_IntValue()).First().levelPrefix;
+                                string columnTopSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currenColumnTopLevel.Id.Ext_IntValue()).First().levelPrefix;
 
                                 if (currenColumnTopLevel.Id != currentColumnBaseLevel.Id)
                                 {
@@ -192,7 +193,7 @@ namespace ONBOXAppl
                                 //we will try to find other columns equal to this column and are in the same z line (position) on other levels, so they have the same name
                                 for (int l = 0; l < allLevels.Count; l++)
                                 {
-                                    currentLevelInfo = ONBOXApplication.storedColumnLevelInfo.Where(lvlInfo => lvlInfo.levelId == allLevels.ElementAt(l).Id.IntegerValue).First();
+                                    currentLevelInfo = ONBOXApplication.storedColumnLevelInfo.Where(lvlInfo => lvlInfo.levelId == allLevels.ElementAt(l).Id.Ext_IntValue()).First();
                                     if (currentLevelInfo.willBeNumbered == false)
                                         continue;
 
@@ -232,15 +233,15 @@ namespace ONBOXAppl
                                         if ((currentcolumnInLine == null) || (currentColumn.Id == currentcolumnInLine.Id))
                                             continue;
 
-                                        currentColumnTypeInfo = ONBOXApplication.storedColumnTypesInfo.Where(colInfo => colInfo.TypeId == currentcolumnInLine.GetTypeId().IntegerValue).First();
+                                        currentColumnTypeInfo = ONBOXApplication.storedColumnTypesInfo.Where(colInfo => colInfo.TypeId == currentcolumnInLine.GetTypeId().Ext_IntValue()).First();
                                         if (currentColumnTypeInfo.WillBeNumbered == false)
                                             continue;
 
                                         currentColumnBaseLevel = doc.GetElement(currentcolumnInLine.get_Parameter(BuiltInParameter.FAMILY_BASE_LEVEL_PARAM).AsElementId());
                                         currenColumnTopLevel = doc.GetElement(currentcolumnInLine.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_PARAM).AsElementId());
 
-                                        columnBaseSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currentColumnBaseLevel.Id.IntegerValue).First().levelPrefix;
-                                        columnTopSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currenColumnTopLevel.Id.IntegerValue).First().levelPrefix;
+                                        columnBaseSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currentColumnBaseLevel.Id.Ext_IntValue()).First().levelPrefix;
+                                        columnTopSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currenColumnTopLevel.Id.Ext_IntValue()).First().levelPrefix;
 
                                         if (currenColumnTopLevel.Id != currentColumnBaseLevel.Id)
                                         {
@@ -334,7 +335,7 @@ namespace ONBOXAppl
             {
                 if (!allUsedColumnTypesIDs.Contains(currentElement.GetTypeId()))
                 {
-                    int typeID = currentElement.GetTypeId().IntegerValue;
+                    int typeID = currentElement.GetTypeId().Ext_IntValue();
                     string typeName = currentElement.Name;
                     ColumnTypesInfo currentColumnInfo = new ColumnTypesInfo() { TypeName = typeName, TypeId = typeID, WillBeNumbered = true, TypePrefix = "P" };
 
@@ -607,19 +608,19 @@ namespace ONBOXAppl
                                     continue;
                                 }
 
-                                ColumnTypesInfo currentColumnTypeInfo = ONBOXApplication.storedColumnTypesInfo.Where(colInfo => colInfo.TypeId == currentColumn.GetTypeId().IntegerValue).First();
+                                ColumnTypesInfo currentColumnTypeInfo = ONBOXApplication.storedColumnTypesInfo.Where(colInfo => colInfo.TypeId == currentColumn.GetTypeId().Ext_IntValue()).First();
                                 if (currentColumnTypeInfo.WillBeNumbered == false)
                                     continue;
 
-                                LevelInfo currentLevelInfo = ONBOXApplication.storedColumnLevelInfo.Where(lvlInfo => lvlInfo.levelId == allLevels.ElementAt(i).Id.IntegerValue).First();
+                                LevelInfo currentLevelInfo = ONBOXApplication.storedColumnLevelInfo.Where(lvlInfo => lvlInfo.levelId == allLevels.ElementAt(i).Id.Ext_IntValue()).First();
                                 if (currentLevelInfo.willBeNumbered == false)
                                     continue;
 
                                 Element currenColumnTopLevel = doc.GetElement(currentColumn.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_PARAM).AsElementId());
                                 allUsedColumnsIDs.Add(currentColumn.Id);
 
-                                string columnBaseSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currentColumnBaseLevel.Id.IntegerValue).First().levelPrefix;
-                                string columnTopSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currenColumnTopLevel.Id.IntegerValue).First().levelPrefix;
+                                string columnBaseSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currentColumnBaseLevel.Id.Ext_IntValue()).First().levelPrefix;
+                                string columnTopSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currenColumnTopLevel.Id.Ext_IntValue()).First().levelPrefix;
 
                                 if (currenColumnTopLevel.Id != currentColumnBaseLevel.Id)
                                 {
@@ -657,7 +658,7 @@ namespace ONBOXAppl
                                 //we will try to find other columns equal to this column and are in the same z line (position) on other levels, so they have the same name
                                 for (int l = 0; l < allLevels.Count; l++)
                                 {
-                                    currentLevelInfo = ONBOXApplication.storedColumnLevelInfo.Where(lvlInfo => lvlInfo.levelId == allLevels.ElementAt(l).Id.IntegerValue).First();
+                                    currentLevelInfo = ONBOXApplication.storedColumnLevelInfo.Where(lvlInfo => lvlInfo.levelId == allLevels.ElementAt(l).Id.Ext_IntValue()).First();
                                     if (currentLevelInfo.willBeNumbered == false)
                                         continue;
 
@@ -697,15 +698,15 @@ namespace ONBOXAppl
                                         if ((currentcolumnInLine == null) || (currentColumn.Id == currentcolumnInLine.Id))
                                             continue;
 
-                                        currentColumnTypeInfo = ONBOXApplication.storedColumnTypesInfo.Where(colInfo => colInfo.TypeId == currentcolumnInLine.GetTypeId().IntegerValue).First();
+                                        currentColumnTypeInfo = ONBOXApplication.storedColumnTypesInfo.Where(colInfo => colInfo.TypeId == currentcolumnInLine.GetTypeId().Ext_IntValue()).First();
                                         if (currentColumnTypeInfo.WillBeNumbered == false)
                                             continue;
 
                                         currentColumnBaseLevel = doc.GetElement(currentcolumnInLine.get_Parameter(BuiltInParameter.FAMILY_BASE_LEVEL_PARAM).AsElementId());
                                         currenColumnTopLevel = doc.GetElement(currentcolumnInLine.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_PARAM).AsElementId());
 
-                                        columnBaseSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currentColumnBaseLevel.Id.IntegerValue).First().levelPrefix;
-                                        columnTopSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currenColumnTopLevel.Id.IntegerValue).First().levelPrefix;
+                                        columnBaseSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currentColumnBaseLevel.Id.Ext_IntValue()).First().levelPrefix;
+                                        columnTopSufix = ONBOXApplication.storedColumnLevelInfo.Where(colInfo => colInfo.levelId == currenColumnTopLevel.Id.Ext_IntValue()).First().levelPrefix;
 
                                         if (currenColumnTopLevel.Id != currentColumnBaseLevel.Id)
                                         {
@@ -799,7 +800,7 @@ namespace ONBOXAppl
             {
                 if (!allUsedColumnTypesIDs.Contains(currentElement.GetTypeId()))
                 {
-                    int typeID = currentElement.GetTypeId().IntegerValue;
+                    int typeID = currentElement.GetTypeId().Ext_IntValue();
                     string typeName = currentElement.Name;
                     ColumnTypesInfo currentColumnInfo = new ColumnTypesInfo() { TypeName = typeName, TypeId = typeID, WillBeNumbered = true, TypePrefix = "P" };
 

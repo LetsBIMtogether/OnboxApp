@@ -7,25 +7,22 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI.Selection;
+using Utils;
 
 namespace ONBOXAppl
 {
     class BeamSelectionFilter : ISelectionFilter
     {
-
         public bool AllowElement(Element elem)
         {
-            if (elem.Category.Id.IntegerValue.ToString() == BuiltInCategory.OST_StructuralFraming.GetHashCode().ToString())
-            {
-                return true;
-            }
-            return false;
+            if (elem == null || elem is ElementType)
+                return false;
+
+            var cat = elem.Category; // can be null now
+            return cat != null && cat.Id.Ext_IntValue() == (int)BuiltInCategory.OST_StructuralFraming;
         }
 
-        public bool AllowReference(Reference reference, XYZ position)
-        {
-            return false;
-        }
+        public bool AllowReference(Reference reference, XYZ position) => false;
     }
 
     class RequestBeamsUpdateHandler : IExternalEventHandler
@@ -130,7 +127,7 @@ namespace ONBOXAppl
 
                         #endregion
 
-                        Family currentFamily = doc.GetElement(new ElementId(currentUI.SelectedBeamFamilyID)) as Family;
+                        Family currentFamily = doc.GetElement(currentUI.SelectedBeamFamilyID.Ext_UniversalElemID()) as Family;
                         FamilySymbol currentFamilySymbol = doc.GetElement(currentFamily.GetFamilySymbolIds().First()) as FamilySymbol;
                         if (currentFamilySymbol == null)
                             throw new Exception("Erro na separação do tipo de família.");
@@ -305,7 +302,7 @@ namespace ONBOXAppl
             foreach (Family currentElem in allColumnFamiliesFilt)
             {
                 string currentFamilyName = (currentElem as Family).Name;
-                int currentFamilyID = currentElem.Id.IntegerValue;
+                int currentFamilyID = currentElem.Id.Ext_IntValue();
                 System.Drawing.Bitmap currentFirstTypeBitmap = (uidoc.Document.GetElement(((currentElem as Family)
                     .GetFamilySymbolIds()).First()) as FamilySymbol).GetPreviewImage(new System.Drawing.Size(60, 60));
 

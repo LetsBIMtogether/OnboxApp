@@ -76,7 +76,7 @@ namespace ONBOXAppl
         public TopoSlopesUI()
         {
             InitializeComponent();
-#if R2024
+#if REVIT2024UP
             this.Title = Properties.WindowLanguage.ToposolidSolidGrading_Title;
 #endif
         }

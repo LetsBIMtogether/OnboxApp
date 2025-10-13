@@ -7,6 +7,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI.Selection;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -14,45 +15,33 @@ namespace ONBOXAppl
     {
         public bool AllowElement(Element elem)
         {
-            if (elem.Category.Id.ToString() == (BuiltInCategory.OST_StructuralColumns).GetHashCode().ToString())
-                return true;
-            return false;
+            if (elem == null || elem is ElementType) return false;
+
+            var cat = elem.Category; // can be null in 2025+
+            return cat != null && cat.Id.Ext_IntValue() == (int)BuiltInCategory.OST_StructuralColumns;
         }
 
-        public bool AllowReference(Reference reference, XYZ position)
-        {
-            return false;
-        }
+        public bool AllowReference(Reference reference, XYZ position) => false;
     }
-
 
     class ColumnAndBeamSelectionFilter : ISelectionFilter
     {
-        FamilyInstance currentBeam = null;
+        private readonly FamilyInstance _currentBeam;
 
-        public ColumnAndBeamSelectionFilter(FamilyInstance targetBeam)
-        {
-            currentBeam = targetBeam;
-        }
+        public ColumnAndBeamSelectionFilter(FamilyInstance targetBeam) => _currentBeam = targetBeam;
 
         public bool AllowElement(Element elem)
         {
-            if (elem.Category.Id.IntegerValue == BuiltInCategory.OST_StructuralColumns.GetHashCode())
-            {
-                return true;
-            }
-            else if (elem.Id == currentBeam.Id)
-            {
-                return true;
-            }
+            if (elem == null || elem is ElementType) return false;
 
-            return false;
+            var cat = elem.Category; // can be null in 2025+
+            if (cat != null && cat.Id.Ext_IntValue() == (int)BuiltInCategory.OST_StructuralColumns)
+                return true;
+
+            return _currentBeam != null && elem.Id == _currentBeam.Id;
         }
 
-        public bool AllowReference(Reference reference, XYZ position)
-        {
-            return false;
-        }
+        public bool AllowReference(Reference reference, XYZ position) => false;
     }
 
     public class RequestBeamsFromColumnsHandler : IExternalEventHandler
@@ -150,7 +139,7 @@ namespace ONBOXAppl
                     {
                         FamilyInstance currentSelection = doc.GetElement(sel.PickObject(ObjectType.Element, new ColumnAndBeamSelectionFilter(createdBeam), Properties.Messages.BeamsFromColumns_SelectFirstColumnOrBeam)) as FamilyInstance;
 
-                        if (currentSelection.Category.Id.IntegerValue == BuiltInCategory.OST_StructuralColumns.GetHashCode())
+                        if (currentSelection.Category.Id.Ext_IntValue() == BuiltInCategory.OST_StructuralColumns.GetHashCode())
                         {
                             if (currentUI.IsChain() == false || lastSelectedColumn == null)
                             {
@@ -297,7 +286,7 @@ namespace ONBOXAppl
                 FamilySymbol BeamTypeFromFamilySymbol = null;
 
                 IList<FamilySymbol> ListBeamTypesFromFamilySymbol = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_StructuralFraming)
-                    .WhereElementIsElementType().Cast<FamilySymbol>().Where(t => t.Family.Id.IntegerValue == currentUI.selectedBeamFamilyID).ToList();
+                    .WhereElementIsElementType().Cast<FamilySymbol>().Where(t => t.Family.Id.Ext_IntValue() == currentUI.selectedBeamFamilyID).ToList();
 
                 if (ListBeamTypesFromFamilySymbol.Count > 0)
                     BeamTypeFromFamilySymbol = ListBeamTypesFromFamilySymbol.FirstOrDefault();
@@ -624,7 +613,7 @@ namespace ONBOXAppl
             foreach (Family currentElem in allColumnFamiliesFilt)
             {
                 string currentFamilyName = (currentElem as Family).Name;
-                int currentFamilyID = currentElem.Id.IntegerValue;
+                int currentFamilyID = currentElem.Id.Ext_IntValue();
                 System.Drawing.Bitmap currentFirstTypeBitmap = (uidoc.Document.GetElement(((currentElem as Family)
                     .GetFamilySymbolIds()).First()) as FamilySymbol).GetPreviewImage(new System.Drawing.Size(60, 60));
 

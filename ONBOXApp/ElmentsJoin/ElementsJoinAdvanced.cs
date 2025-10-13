@@ -8,6 +8,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI.Selection;
 using System.Windows.Controls;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -76,10 +77,10 @@ namespace ONBOXAppl
                 Element upperLevelElement = null;
 
                 if (currentUI.selectedLowerLevel != 0 && currentUI.selectedLowerLevel != -1)
-                    lowerLevelElement = doc.GetElement(new ElementId(currentUI.selectedLowerLevel));
+                    lowerLevelElement = doc.GetElement(currentUI.selectedLowerLevel.Ext_UniversalElemID());
 
                 if (currentUI.selectedUpperLevel != 0 && currentUI.selectedUpperLevel != -1)
-                    upperLevelElement = doc.GetElement(new ElementId(currentUI.selectedUpperLevel));
+                    upperLevelElement = doc.GetElement(currentUI.selectedUpperLevel.Ext_UniversalElemID());
 
                 if (lowerLevelElement != null)
                     lowerLevel = lowerLevelElement as Level;
@@ -252,7 +253,7 @@ namespace ONBOXAppl
 
             int nextLevelLocation = levelIdList.IndexOf(targetLevel.Id) + 1;
 
-            ElementId nextLevelId = new ElementId(-1);
+            ElementId nextLevelId = (-1).Ext_UniversalElemID();
 
             if (levelIdList.Count - 1 >= nextLevelLocation)
                 nextLevelId = levelIdList.ElementAt(nextLevelLocation);

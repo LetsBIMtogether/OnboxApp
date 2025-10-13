@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Xml;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -18,7 +19,7 @@ namespace ONBOXAppl
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            System.Diagnostics.Process.Start("http://www.onboxdesign.com.br/");
+            UrlOpener.Open("http://www.onboxdesign.com.br/");
             return Result.Succeeded;
         }
     }

@@ -5,7 +5,7 @@
 	</PropertyGroup>
 	
 	<!-- Disable warnings -->
-	<!--
+	<!-- 
 	<PropertyGroup>
 		<NoWarn>$(NoWarn);CS1591;CS8019;CS0618;CS0168;CS0219</NoWarn>
 		<WarningsAsMessages>$(WarningsAsMessages);*</WarningsAsMessages>
@@ -34,9 +34,9 @@
 		<AssemblyName>ONBOXAppl</AssemblyName>
 		<RuntimeIdentifiers>win</RuntimeIdentifiers>
 
-		<TargetFrameworks>net47;net48;</TargetFrameworks>	<!--net8.0-windows; -->	
+		<TargetFrameworks>net47;net48;net8.0-windows;</TargetFrameworks>
 		<RevitVersion Condition=" '$(RevitVersion)' == '' ">2024</RevitVersion>
-		<DefineConstants>REVIT$(RevitVersion)</DefineConstants><!--;WINFORMS-->
+		<DefineConstants>REVIT$(RevitVersion)</DefineConstants>
 		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
 		
 		<PlatformTarget>x64</PlatformTarget>
@@ -141,13 +141,11 @@
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2026.*" Condition=" '$(RevitVersion)' == '2026' " PrivateAssets="All" />
 	</ItemGroup>
 
-	<!-- May not be hitting REVIT2026UP properly -->
 	<PropertyGroup Condition="'$(RevitVersion)' != '2019' AND '$(RevitVersion)' != '2020' AND '$(RevitVersion)' != '2021' AND '$(RevitVersion)' != '2022' AND '$(RevitVersion)' != '2023' AND '$(RevitVersion)' != '2024' AND '$(RevitVersion)' != '2025'">
 		<DefineConstants>$(DefineConstants);REVIT2026UP</DefineConstants>
 		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
 	</PropertyGroup>
 
-	<!-- May not be hitting REVIT2025UP properly -->
 	<PropertyGroup Condition="'$(RevitVersion)' != '2019' AND '$(RevitVersion)' != '2020' AND '$(RevitVersion)' != '2021' AND '$(RevitVersion)' != '2022' AND '$(RevitVersion)' != '2023' AND '$(RevitVersion)' != '2024'">
 		<DefineConstants>$(DefineConstants);REVIT2025UP</DefineConstants>
 		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
@@ -670,13 +668,9 @@
 		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2023" />
 	</Target>
 	
-	<!--
-
 	<Target Name="Build2025" AfterTargets="DispatchToInnerBuilds">
 		<Message Importance="high" Text="*** Running post-dispatch build for Revit 2025 ***" />
 		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net8.0-windows;RevitVersion=2025" />
 	</Target>
-	
-	-->
 	
 </Project>

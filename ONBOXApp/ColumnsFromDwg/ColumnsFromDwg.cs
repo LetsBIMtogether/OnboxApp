@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autodesk.Revit.UI.Selection;
 using System.Drawing;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -239,7 +240,7 @@ namespace ONBOXAppl
 
                                         XYZ midPoint = Utils.GetPoint.getMidPoint(point1, point2);
                                         FamilyWithImage familyInfo = ONBOXApplication.storedColumnFamiliesInfo.ElementAt(ONBOXApplication.selectedColumnFamily);
-                                        FamilySymbol fs = uidoc.Document.GetElement((uidoc.Document.GetElement(new ElementId(familyInfo.FamilyID)) as Family).GetFamilySymbolIds().First()) as FamilySymbol;
+                                        FamilySymbol fs = uidoc.Document.GetElement((uidoc.Document.GetElement(familyInfo.FamilyID.Ext_UniversalElemID()) as Family).GetFamilySymbolIds().First()) as FamilySymbol;
                                         string newTypeName = (line1LengthCm).ToString() + " x " + (line2LengthCm).ToString() + "cm";
                                         ElementType newType = null;
 
@@ -258,8 +259,8 @@ namespace ONBOXAppl
                                         FamilySymbol fs2 = newType as FamilySymbol;
                                         fi = doc.Create.NewFamilyInstance(midPoint, fs2, (allLevels.First() as Level), Autodesk.Revit.DB.Structure.StructuralType.Column);
 
-                                        ElementId topLevelID = new ElementId(ONBOXApplication.StoredColumnsDwgLevels.ElementAt(l + 1).levelId);
-                                        ElementId baseLevelID = new ElementId(ONBOXApplication.StoredColumnsDwgLevels.ElementAt(l).levelId);
+                                        ElementId topLevelID = ONBOXApplication.StoredColumnsDwgLevels.ElementAt(l + 1).levelId.Ext_UniversalElemID();
+                                        ElementId baseLevelID = ONBOXApplication.StoredColumnsDwgLevels.ElementAt(l).levelId.Ext_UniversalElemID();
 
                                         fi.get_Parameter(BuiltInParameter.FAMILY_BASE_LEVEL_PARAM).Set(baseLevelID);
                                         fi.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_PARAM).Set(topLevelID);
@@ -293,7 +294,7 @@ namespace ONBOXAppl
                                         continue;
 
                                     FamilyWithImage familyInfo = ONBOXApplication.storedColumnFamiliesCircInfo.ElementAt(ONBOXApplication.selectedColumnCircFamily);
-                                    FamilySymbol fs = uidoc.Document.GetElement((uidoc.Document.GetElement(new ElementId(familyInfo.FamilyID)) as Family).GetFamilySymbolIds().First()) as FamilySymbol;
+                                    FamilySymbol fs = uidoc.Document.GetElement((uidoc.Document.GetElement(familyInfo.FamilyID.Ext_UniversalElemID()) as Family).GetFamilySymbolIds().First()) as FamilySymbol;
                                     string newTypeName = currentArcDiameterCm + "cm";
                                     ElementType newType = null;
 
@@ -312,8 +313,8 @@ namespace ONBOXAppl
                                     FamilySymbol fs2 = newType as FamilySymbol;
                                     FamilyInstance fi = doc.Create.NewFamilyInstance(currentArcLocation, fs2, (allLevels.First() as Level), Autodesk.Revit.DB.Structure.StructuralType.Column);
 
-                                    ElementId topLevelID = new ElementId((ONBOXApplication.StoredColumnsDwgLevels.ElementAt(ONBOXApplication.StoredColumnsDwgLevels.IndexOf(currentLevelInfo) + 1)).levelId);
-                                    ElementId baseLevelID = new ElementId(currentLevelInfo.levelId);
+                                    ElementId topLevelID = (ONBOXApplication.StoredColumnsDwgLevels.ElementAt(ONBOXApplication.StoredColumnsDwgLevels.IndexOf(currentLevelInfo) + 1)).levelId.Ext_UniversalElemID();
+                                    ElementId baseLevelID = currentLevelInfo.levelId.Ext_UniversalElemID();
 
                                     fi.get_Parameter(BuiltInParameter.FAMILY_BASE_LEVEL_PARAM).Set(baseLevelID);
                                     fi.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_PARAM).Set(topLevelID);
@@ -393,7 +394,7 @@ namespace ONBOXAppl
             foreach (Family currentElem in allColumnFamiliesFilt)
             {
                 string currentFamilyName = (currentElem as Family).Name;
-                int currentFamilyID = currentElem.Id.IntegerValue;
+                int currentFamilyID = currentElem.Id.Ext_IntValue();
                 Bitmap currentFirstTypeBitmap = (uidoc.Document.GetElement(((currentElem as Family)
                     .GetFamilySymbolIds()).First()) as FamilySymbol).GetPreviewImage(new Size(60, 60));
 
@@ -429,7 +430,7 @@ namespace ONBOXAppl
             foreach (Family currentElem in allColumnFamiliesFilt)
             {
                 string currentFamilyName = (currentElem as Family).Name;
-                int currentFamilyID = currentElem.Id.IntegerValue;
+                int currentFamilyID = currentElem.Id.Ext_IntValue();
                 Bitmap currentFirstTypeBitmap = (uidoc.Document.GetElement(((currentElem as Family)
                     .GetFamilySymbolIds()).First()) as FamilySymbol).GetPreviewImage(new Size(60, 60));
 

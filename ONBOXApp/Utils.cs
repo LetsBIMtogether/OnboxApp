@@ -1,9 +1,10 @@
-﻿using System;
-using Autodesk.Revit.DB;
+﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using System.Collections.Generic;
-using System.Linq;
 using ONBOXAppl;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Utils
 {
@@ -846,7 +847,7 @@ namespace Utils
             {
                 Level currentLevel = currentElement as Level;
                 string currentLevelName = currentLevel.Name;
-                int currentLevelId = currentLevel.Id.IntegerValue;
+                int currentLevelId = currentLevel.Id.Ext_IntValue();
                 LevelInfo currentLevelInformation = new LevelInfo();
                 currentLevelInformation.levelName = currentLevelName;
                 currentLevelInformation.levelId = currentLevelId;
@@ -867,7 +868,7 @@ namespace Utils
             {
                 Level currentLevel = currentElement as Level;
                 string currentLevelName = currentLevel.Name;
-                int currentLevelId = currentLevel.Id.IntegerValue;
+                int currentLevelId = currentLevel.Id.Ext_IntValue();
                 LevelInfo currentLevelInformation = new LevelInfo();
                 currentLevelInformation.levelName = currentLevelName;
                 currentLevelInformation.levelId = currentLevelId;
@@ -951,7 +952,7 @@ namespace Utils
             foreach (Family currentElem in allColumnFamiliesFilt)
             {
                 string currentFamilyName = (currentElem as Family).Name;
-                int currentFamilyID = currentElem.Id.IntegerValue;
+                int currentFamilyID = currentElem.Id.Ext_IntValue();
                 System.Drawing.Bitmap currentFirstTypeBitmap = (targetDoc.GetElement(((currentElem as Family)
                     .GetFamilySymbolIds()).First()) as FamilySymbol).GetPreviewImage(new System.Drawing.Size(60, 60));
 
@@ -1077,5 +1078,67 @@ namespace Utils
 
             return resolvedInt;
         }
+    }
+
+    static class UrlOpener
+    {
+        public static void Open(string url)
+        {
+            if (!Uri.TryCreate(url, UriKind.Absolute, out var u))
+                u = new Uri("http://" + url.Trim());
+
+            try
+            {
+                // Fast path, works in most contexts
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = u.AbsoluteUri,
+                    UseShellExecute = true
+                });
+            }
+            catch
+            {
+                // Shell-resolved fallback: always asks Windows for the default handler
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $"/c start \"\" \"{u.AbsoluteUri}\"",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                });
+            }
+        }
+    }
+
+    static class MethodExtensions
+    {
+        public static int Ext_IntValue(this ElementId id)
+        {
+#if REVIT2024UP
+            return (int)id.Value;
+#else
+            return id.IntegerValue;
+#endif
+        }
+
+        public static ElementId Ext_UniversalElemID(this int value)
+        {
+#if REVIT2024UP
+            return new ElementId((long)value);
+#else
+            return new ElementId(value);
+#endif
+        }
+
+        public static void Ext_AddPoint(this SlabShapeEditor sse, XYZ p)
+        {
+#if REVIT2025UP
+            sse.Enable();
+            sse.AddPoints(new List<XYZ> { p });
+#else
+            sse.DrawPoint(p);
+#endif
+        }
+
     }
 }

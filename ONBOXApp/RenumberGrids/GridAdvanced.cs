@@ -10,6 +10,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI.Selection;
 using System.Diagnostics;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -105,7 +106,7 @@ namespace ONBOXAppl
             foreach (GridInfo currentGridInfo in targetGridInfoList)
             {
                 bool isCurrentGridPartOfMultiGridItem = false;
-                Grid currentGrid = uidoc.Document.GetElement(new ElementId(currentGridInfo.Id)) as Grid;
+                Grid currentGrid = uidoc.Document.GetElement(currentGridInfo.Id.Ext_UniversalElemID()) as Grid;
 
                 if (currentGrid == null)
                 {
@@ -172,17 +173,17 @@ namespace ONBOXAppl
                     if (VerifyGridOrientation(currentGrid) == GridOrientation.Horizontal)
                     {
                         currentGridOrientation = "Horizontal";
-                        allHorizontalGridsInfo.Add(new GridInfo() { Id = currentGrid.Id.IntegerValue, newName = "", prevName = currentGrid.Name, orientation = currentGridOrientation });
+                        allHorizontalGridsInfo.Add(new GridInfo() { Id = currentGrid.Id.Ext_IntValue(), newName = "", prevName = currentGrid.Name, orientation = currentGridOrientation });
                     }
                     else
                     {
                         currentGridOrientation = "Vertical";
-                        allVerticalGridsInfo.Add(new GridInfo() { Id = currentGrid.Id.IntegerValue, newName = "", prevName = currentGrid.Name, orientation = currentGridOrientation });
+                        allVerticalGridsInfo.Add(new GridInfo() { Id = currentGrid.Id.Ext_IntValue(), newName = "", prevName = currentGrid.Name, orientation = currentGridOrientation });
                     }
                 }
 
-                allHorizontalGridsInfo = allHorizontalGridsInfo.Where(g => g is GridInfo).OrderByDescending(g => (uidoc.Document.GetElement(new ElementId(g.Id)) as Grid).Curve.GetEndPoint(0).Y).ToList();
-                allVerticalGridsInfo = allVerticalGridsInfo.Where(g => g is GridInfo).OrderBy(g => (uidoc.Document.GetElement(new ElementId(g.Id)) as Grid).Curve.GetEndPoint(0).X).ToList();
+                allHorizontalGridsInfo = allHorizontalGridsInfo.Where(g => g is GridInfo).OrderByDescending(g => (uidoc.Document.GetElement(g.Id.Ext_UniversalElemID()) as Grid).Curve.GetEndPoint(0).Y).ToList();
+                allVerticalGridsInfo = allVerticalGridsInfo.Where(g => g is GridInfo).OrderBy(g => (uidoc.Document.GetElement(g.Id.Ext_UniversalElemID()) as Grid).Curve.GetEndPoint(0).X).ToList();
 
                 gridsInformation = allHorizontalGridsInfo.Union(allVerticalGridsInfo).ToList();
 
@@ -253,9 +254,9 @@ namespace ONBOXAppl
             {
                 Grid currentGrid = null;
 
-                currentGrid = uidoc.Document.GetElement(new ElementId(currentGridInfo.Id)) as Grid;
+                currentGrid = uidoc.Document.GetElement(currentGridInfo.Id.Ext_UniversalElemID()) as Grid;
 
-                if (allMultiGridSubGridsIDs.Contains(new ElementId(currentGridInfo.Id)))
+                if (allMultiGridSubGridsIDs.Contains(currentGridInfo.Id.Ext_UniversalElemID()))
                 {
                     MultiSegmentGrid currentMultiSegGrid = doc.GetElement(MultiSegmentGrid.GetMultiSegementGridId(currentGrid)) as MultiSegmentGrid;
 
@@ -277,7 +278,7 @@ namespace ONBOXAppl
                     {
                         prevGridLength = getTheoricalLengthOfTheGrid(prevGrid);
                     }
-                    GridInfo prevGridInfo = targetListOfGrids.Where(g => g.Id == prevGrid.Id.IntegerValue).FirstOrDefault();
+                    GridInfo prevGridInfo = targetListOfGrids.Where(g => g.Id == prevGrid.Id.Ext_IntValue()).FirstOrDefault();
                     if (canUseSubNumering)
                     {
                         if (CompareGridLength(prevGridLength, currentGridLength) == GridLength.Equal)

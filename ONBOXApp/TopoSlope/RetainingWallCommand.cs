@@ -1,4 +1,4 @@
-﻿#if R2024
+﻿#if REVIT2024UP
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -143,7 +144,7 @@ namespace ONBOXAppl
 
                     //topoSolids.Add(topoSolid);
 
-                    topoSolid.GetSlabShapeEditor().DrawPoint(point);
+                    topoSolid.GetSlabShapeEditor().Ext_AddPoint(point);
                 }
 
                 var wallHeightParam = wall.GetParameter(new ForgeTypeId("autodesk.revit.parameter:wallBaseOffset-1.0.0"));
@@ -155,7 +156,7 @@ namespace ONBOXAppl
                     point = new XYZ(point.X, point.Y, 5);
                     //topoSolids.Add(topoSolid);
 
-                    topoSolid.GetSlabShapeEditor().DrawPoint(point);
+                    topoSolid.GetSlabShapeEditor().Ext_AddPoint(point);
                 }
 
                 t.Commit();

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -79,7 +80,7 @@ namespace ONBOXAppl
         public RevitLinksInfo(RevitLinkInstance targetInstance)
         {
             Name = targetInstance.GetLinkDocument().Title;
-            Id = targetInstance.Id.IntegerValue;
+            Id = targetInstance.Id.Ext_IntValue();
         }
     }
 

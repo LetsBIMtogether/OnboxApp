@@ -10,6 +10,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI.Selection;
 using System.Diagnostics;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -71,7 +72,7 @@ namespace ONBOXAppl
                 {
                     if (currentParkingInfo.willBeNumbered == true)
                     {
-                        typesThatWillBeNumbered.Add(new ElementId(currentParkingInfo.TypeId));
+                        typesThatWillBeNumbered.Add(currentParkingInfo.TypeId.Ext_UniversalElemID());
                     }
                 }
 
@@ -146,7 +147,7 @@ namespace ONBOXAppl
                     {
                         //The storedParkingLevelInfo is global variable and it got initialisead in the UI, calling the getAllLevels() method in this class
                         //TODO Again, move this to a local variable
-                        LevelInfo lvlInfo = ONBOXApplication.storedParkingLevelInfo.Where(e => e.levelId == eLevel.Id.IntegerValue).First();
+                        LevelInfo lvlInfo = ONBOXApplication.storedParkingLevelInfo.Where(e => e.levelId == eLevel.Id.Ext_IntValue()).First();
 
                         if (lvlInfo.willBeNumbered == false)
                         {
@@ -163,7 +164,7 @@ namespace ONBOXAppl
                         //TODO use this in conjuntion with the storedParkingInfo so we only loop through the level info one time
                         foreach (LevelInfo currentLevelInfo in ONBOXApplication.storedParkingLevelInfo)
                         {
-                            if (currentLevelInfo.levelId == eLevel.Id.IntegerValue)
+                            if (currentLevelInfo.levelId == eLevel.Id.Ext_IntValue())
                             {
                                 currentLevelPrefix = currentLevelInfo.levelPrefix;
                             }
@@ -225,7 +226,7 @@ namespace ONBOXAppl
 
                                     //Again, thats a Global Variable
                                     //TODO Create a local Variable for this one as well
-                                    string typePrefix = ONBOXApplication.storedParkingTypesInfo.Where(e => e.TypeId == ePark.GetTypeId().IntegerValue).First().TypePrefix;
+                                    string typePrefix = ONBOXApplication.storedParkingTypesInfo.Where(e => e.TypeId == ePark.GetTypeId().Ext_IntValue()).First().TypePrefix;
 
                                     ePark.get_Parameter(BuiltInParameter.DOOR_NUMBER).Set(currentLevelPrefix + typePrefix + counter.ToString());
                                     counter++;
@@ -241,7 +242,7 @@ namespace ONBOXAppl
                                         distance = Utils.ConvertM.feetToM(distance);
 
                                         //TODO Gobal Variable to local
-                                        ParkingTypesInfo currentTypeInfo = ONBOXApplication.storedParkingTypesInfo.Where(e => e.TypeId == currentPark.GetTypeId().IntegerValue).First();
+                                        ParkingTypesInfo currentTypeInfo = ONBOXApplication.storedParkingTypesInfo.Where(e => e.TypeId == currentPark.GetTypeId().Ext_IntValue()).First();
 
                                         //The tolerance to include this parking as a part of the current block will be this
                                         double tolerance = currentTypeInfo.TypeWidth + 0.1;
@@ -277,7 +278,7 @@ namespace ONBOXAppl
                                         double distance = (currentParkinLevel.Location as LocationPoint).Point.DistanceTo((prevElement.Location as LocationPoint).Point);
                                         distance = Utils.ConvertM.feetToM(distance);
 
-                                        ParkingTypesInfo currentTypeInfo = ONBOXApplication.storedParkingTypesInfo.Where(e => e.TypeId == currentParkinLevel.GetTypeId().IntegerValue).First();
+                                        ParkingTypesInfo currentTypeInfo = ONBOXApplication.storedParkingTypesInfo.Where(e => e.TypeId == currentParkinLevel.GetTypeId().Ext_IntValue()).First();
                                         double tolerance = currentTypeInfo.TypeWidth + 0.1;
 
                                         if ((distance < tolerance) && (!UsedParkingsInLevel.Contains(currentParkinLevel.Id)))
@@ -302,7 +303,7 @@ namespace ONBOXAppl
                                         {
                                             counter++;
                                         }
-                                        ParkingTypesInfo currentTypeInfo = ONBOXApplication.storedParkingTypesInfo.Where(e => e.TypeId == currentParking.GetTypeId().IntegerValue).First();
+                                        ParkingTypesInfo currentTypeInfo = ONBOXApplication.storedParkingTypesInfo.Where(e => e.TypeId == currentParking.GetTypeId().Ext_IntValue()).First();
                                         currentParking.get_Parameter(BuiltInParameter.DOOR_NUMBER).Set(currentLevelPrefix + currentTypeInfo.TypePrefix + counter.ToString());
                                         counter++;
                                         UsedParkingsInLevel.Add(currentParking.Id);
@@ -398,7 +399,7 @@ namespace ONBOXAppl
             {
                 Level currentLevel = currentElement as Level;
                 string currentLevelName = currentLevel.Name;
-                int currentLevelId = currentLevel.Id.IntegerValue;
+                int currentLevelId = currentLevel.Id.Ext_IntValue();
                 LevelInfo currentLevelInformation = new LevelInfo();
                 currentLevelInformation.levelName = currentLevelName;
                 currentLevelInformation.levelId = currentLevelId;
@@ -423,7 +424,7 @@ namespace ONBOXAppl
             {
                 if (!allUsedParkingTypesIDs.Contains(currentElement.GetTypeId()))
                 {
-                    int typeID = currentElement.GetTypeId().IntegerValue;
+                    int typeID = currentElement.GetTypeId().Ext_IntValue();
                     string typeName = currentElement.Name;
                     ParkingTypesInfo currentTypeInfo = new ParkingTypesInfo() { TypeName = typeName, TypeId = typeID, willBeNumbered = true, TypePrefix = "", TypeWidth = GetParkingWidth(currentElement) };
 
@@ -642,7 +643,7 @@ namespace ONBOXAppl
                                 double dist = (currentRemaining.Location as LocationPoint).Point.DistanceTo((prevElement.Location as LocationPoint).Point);
                                 dist = Utils.ConvertM.feetToM(dist);
 
-                                ParkingTypesInfo currentTypeInfo = parkingInfo.Where(e => e.TypeId == currentRemaining.GetTypeId().IntegerValue).First();
+                                ParkingTypesInfo currentTypeInfo = parkingInfo.Where(e => e.TypeId == currentRemaining.GetTypeId().Ext_IntValue()).First();
                                 double tolerance = currentTypeInfo.TypeWidth + 0.3;
 
                                 FamilyInstance currentParkInstance = currentRemaining as FamilyInstance;
@@ -700,7 +701,7 @@ namespace ONBOXAppl
             {
                 if (!allUsedParkingTypesIDs.Contains(currentElement.GetTypeId()))
                 {
-                    int typeID = currentElement.GetTypeId().IntegerValue;
+                    int typeID = currentElement.GetTypeId().Ext_IntValue();
                     string typeName = currentElement.Name;
                     ParkingTypesInfo currentTypeInfo = new ParkingTypesInfo() { TypeName = typeName, TypeId = typeID, willBeNumbered = true, TypePrefix = "", TypeWidth = RenumberParking.GetParkingWidth(currentElement) };
 

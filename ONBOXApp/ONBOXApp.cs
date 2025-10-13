@@ -236,7 +236,7 @@ namespace ONBOXAppl
             btnCreateTopoFromPointCloud.SetContextualHelp(new ContextualHelp(ContextualHelpType.Url, Properties.HelpLinks.btnCreateTopoFromPointCloud));
             //PushButton btnCreateTopoFromDwgMarks = panelTopo.AddItem(new PushButtonData("  Topografia por CAD planimétrico  ", "  Topografia por \n  planimetria  ", dll, "ONBOXAppl.TopoFromDwgMarks")) as PushButton;
 
-#if !R2024
+#if !REVIT2024UP
             PushButton btnTopoSlope = panelTopo.AddItem(new PushButtonData(Properties.RibbonLanguage.Topography_SlopeByPads, Properties.RibbonLanguage.Topography_SlopeByPads.Replace("\\n", "\n"), dll, "ONBOXAppl.TopoSlopes")) as PushButton;
             btnTopoSlope.SetContextualHelp(new ContextualHelp(ContextualHelpType.Url, Properties.HelpLinks.btnTopoSlope));
 #else
@@ -383,7 +383,7 @@ namespace ONBOXAppl
             //btnCreateTopoFromDwgMarks.Image = TopoFromDWG16;
             //btnCreateTopoFromDwgMarks.LargeImage = TopoFromDWG32;
 
-#if !R2024
+#if !REVIT2024UP
             btnTopoSlope.ToolTip = Properties.RibbonLanguage.Topography_SlopeByPads_ToolTip;
             btnTopoSlope.LongDescription = Properties.RibbonLanguage.Topography_SlopeByPads_Descrip;
 #else

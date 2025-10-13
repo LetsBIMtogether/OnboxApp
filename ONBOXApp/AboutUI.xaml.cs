@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -30,7 +31,7 @@ namespace ONBOXAppl
 
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.onboxdesign.com.br/");
+            UrlOpener.Open("http://www.onboxdesign.com.br/");
         }
 
         private void btnLicense_Click(object sender, RoutedEventArgs e)
@@ -56,17 +57,17 @@ namespace ONBOXAppl
 
         private void imgYoutube_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.youtube.com/user/mrthiagokurumada");
+            UrlOpener.Open("https://www.youtube.com/user/mrthiagokurumada");
         }
 
         private void imgOnbox_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.onboxdesign.com.br/");
+            UrlOpener.Open("http://www.onboxdesign.com.br/");
         }
 
         private void imgMail_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.onboxdesign.com.br/contato/");
+            UrlOpener.Open("http://www.onboxdesign.com.br/contato/");
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Utils;
 
 namespace ONBOXAppl
 {
@@ -26,7 +27,7 @@ namespace ONBOXAppl
 
         private void OnClick(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://app.onboxdesign.com.br/accounts/request");
+            UrlOpener.Open("https://app.onboxdesign.com.br/accounts/request");
         }
     }
 }
