@@ -1,4 +1,4 @@
-# OnboxApp 1.1.6.0 (Fork L-BIM-T_PR2A / Revit 2019-2026)
+# OnBoxApp 1.1.6.0 (Fork L-BIM-T_PR2A / Revit 2019-2026)
 - [Click here to download the installation file. (Last updated November 23, 2025)](https://github.com/LetsBIMtogether/OnboxApp/releases/download/v1.1.6.0_L-BIM-T_PR2A/OnboxApp_Install_1160-LBIMT-PR2A.zip)
 ---
 ![](https://raw.githubusercontent.com/engthiago/OnboxApp/master/Ribbon.png)
