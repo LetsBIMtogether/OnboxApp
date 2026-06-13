@@ -47,13 +47,6 @@ namespace ONBOXAppl
             localExternalEvent = targetExternalEvent;
             localExternalEventHandler = targetExternalEventHandler;
             InitializeComponent();
-
-            // Temporary downgrade TD01
-#if REVIT2024UP
-            checkChain.IsChecked = false;
-            checkChain.IsEnabled = false;
-#endif
-            // END OF Temporary downgrade
         }
 
         internal void FreezeCreateButton()

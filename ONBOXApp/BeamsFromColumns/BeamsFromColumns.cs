@@ -135,17 +135,11 @@ namespace ONBOXAppl
                         return;
                     }
 
-                    if (createdBeam != null)    // Skipping this (Temporary downgrade TD01; Revit 2024+)
+                    if (createdBeam != null)    
                     {
-                        // Temporary downgrade TD01
-#if REVIT2024UP
-                        return;
-#endif
-                        // END OF Temporary downgrade
-
                         FamilyInstance currentSelection = doc.GetElement(sel.PickObject(ObjectType.Element, new ColumnAndBeamSelectionFilter(createdBeam), Properties.Messages.BeamsFromColumns_SelectFirstColumnOrBeam)) as FamilyInstance;
 
-                        if (currentSelection.Category.Id.Ext_IntValue() == BuiltInCategory.OST_StructuralColumns.GetHashCode())
+                        if (currentSelection.Category.Id.Ext_IntValue() == (int)BuiltInCategory.OST_StructuralColumns)
                         {
                             if (currentUI.IsChain() == false || lastSelectedColumn == null)
                             {
