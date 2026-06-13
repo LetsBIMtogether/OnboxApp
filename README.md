@@ -8,13 +8,8 @@
 	- (Revit 2019 - 2026 supported)
 
 - Converted .csproj to SDK style project:
-	- "Debug One" works.
-	- "Debug" needs to be fixed.
-
-- Not Tested/Started:
-	- ColumnsFromDwg (Columns From CAD)
-	- RevitZip (Package Project)
-	- (Likely don't work in Revit 2025+)
+	- Debugging (F5 / Play button) only works with "Debug One" (not "Debug").
+	- Build works for all configurations.
 
 - This fork's repository:
 https://github.com/LetsBIMtogether/OnboxApp
