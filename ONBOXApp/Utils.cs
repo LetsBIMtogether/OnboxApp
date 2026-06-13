@@ -376,7 +376,11 @@ namespace Utils
                         //compare the angles
                         if ((angleBetweenBeams < 0.1) || (Math.Abs(angleBetweenBeams - Math.PI) < 0.1))
                         {
+#if REVIT2027UP
+                            SetComparisonResult stRes = targetBeamBeamLine.Intersect(beamElementLocationLine, CurveIntersectResultOption.Simple).Result;
+#else
                             SetComparisonResult stRes = targetBeamBeamLine.Intersect(beamElementLocationLine);
+#endif
                             if (stRes != SetComparisonResult.Disjoint)
                             {
                                 if (beamElement.Id != targetBeam.Id)
@@ -454,7 +458,11 @@ namespace Utils
                         //compare the angles
                         if ((angleBetweenBeams < 0.1) || (Math.Abs(angleBetweenBeams - Math.PI) < 0.1))
                         {
+#if REVIT2027UP
+                            SetComparisonResult stRes = targetBeamBeamLine.Intersect(beamElementLocationLine, CurveIntersectResultOption.Simple).Result;
+#else
                             SetComparisonResult stRes = targetBeamBeamLine.Intersect(beamElementLocationLine);
+#endif
                             if (stRes != SetComparisonResult.Disjoint)
                             {
                                 if (beamElement.Id != targetBeam.Id)

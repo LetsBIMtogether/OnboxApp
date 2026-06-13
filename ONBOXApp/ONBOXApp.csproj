@@ -34,7 +34,7 @@
 		<AssemblyName>ONBOXAppl</AssemblyName>
 		<RuntimeIdentifiers>win</RuntimeIdentifiers>
 
-		<TargetFrameworks>net47;net48;net8.0-windows;</TargetFrameworks>
+		<TargetFrameworks>net47;net48;net8.0-windows;net10.0-windows</TargetFrameworks>
 		<RevitVersion Condition=" '$(RevitVersion)' == '' ">2024</RevitVersion>
 		<DefineConstants>REVIT$(RevitVersion)</DefineConstants>
 		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
@@ -67,6 +67,12 @@
 	
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
 		<RevitVersion>2026</RevitVersion>
+		<UseWPF>true</UseWPF>
+		<OutputPath>..\bin\$(Configuration)\$(RevitVersion)</OutputPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net10.0-windows' ">
+		<RevitVersion>2027</RevitVersion>
 		<UseWPF>true</UseWPF>
 		<OutputPath>..\bin\$(Configuration)\$(RevitVersion)</OutputPath>
 	</PropertyGroup>
@@ -113,7 +119,7 @@
 	</ItemGroup>
 	
 	<!-- Framework references for .NET 8.0 -->
-	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows' or '$(TargetFramework)' == 'net10.0-windows'">
 		<FrameworkReference Include="Microsoft.WindowsDesktop.App" />
 		<PackageReference Include="System.Drawing.Common" Version="8.0.3" />
 		<PackageReference Include="System.Net.Http" Version="4.3.4" />
@@ -129,6 +135,7 @@
 		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2024.*" Condition=" '$(RevitVersion)' == '2024' " PrivateAssets="All" />
 		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2025.*" Condition=" '$(RevitVersion)' == '2025' " PrivateAssets="All" />
 		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2026.*" Condition=" '$(RevitVersion)' == '2026' " PrivateAssets="All" />
+		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2027.*" Condition=" '$(RevitVersion)' == '2027' " PrivateAssets="All" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2019.*" Condition=" '$(RevitVersion)' == '2019' " PrivateAssets="All" />
@@ -139,7 +146,13 @@
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2024.*" Condition=" '$(RevitVersion)' == '2024' " PrivateAssets="All" />
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2025.*" Condition=" '$(RevitVersion)' == '2025' " PrivateAssets="All" />
 		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2026.*" Condition=" '$(RevitVersion)' == '2026' " PrivateAssets="All" />
+		<PackageReference Include="Revit_All_Main_Versions_IFC_x64" Version="2027.*" Condition=" '$(RevitVersion)' == '2027' " PrivateAssets="All" />
 	</ItemGroup>
+
+	<PropertyGroup Condition="'$(RevitVersion)' != '2019' AND '$(RevitVersion)' != '2020' AND '$(RevitVersion)' != '2021' AND '$(RevitVersion)' != '2022' AND '$(RevitVersion)' != '2023' AND '$(RevitVersion)' != '2024' AND '$(RevitVersion)' != '2025' AND '$(RevitVersion)' != '2026'">
+		<DefineConstants>$(DefineConstants);REVIT2027UP</DefineConstants>
+		<PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
+	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(RevitVersion)' != '2019' AND '$(RevitVersion)' != '2020' AND '$(RevitVersion)' != '2021' AND '$(RevitVersion)' != '2022' AND '$(RevitVersion)' != '2023' AND '$(RevitVersion)' != '2024' AND '$(RevitVersion)' != '2025'">
 		<DefineConstants>$(DefineConstants);REVIT2026UP</DefineConstants>
