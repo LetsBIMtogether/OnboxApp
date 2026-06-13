@@ -652,20 +652,31 @@
 		<Message Importance="high" Text="*** Running post-dispatch build for Revit 2020 ***" />
 		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net47;RevitVersion=2020" />
 	</Target>
+
+	<!-- Revit 2021-2023 (net48): force an isolated Restore + obj per version so each links its OWN Revit API.
+       Without this, all net48 versions share the restore that defaults to the 2024 API, where ColumnsFromDwg's
+       NewFamilyInstance(XYZ, FamilySymbol, Level, StructuralType) sits on ItemFactoryBase instead of Document
+       (its location in 2021-2023) -> MissingMethodException at runtime. 2024/2025/2026 already match, so left them way I have done this in the past. -->	
 	
 	<Target Name="Build2021" AfterTargets="DispatchToInnerBuilds">
 		<Message Importance="high" Text="*** Running post-dispatch build for Revit 2021 ***" />
-		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2021" />
+		<MSBuild Projects="$(MSBuildProjectFile)"
+				 Targets="Restore;Build"
+				 Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2021;BaseIntermediateOutputPath=obj\$(Configuration)\2021\;IntermediateOutputPath=obj\$(Configuration)\2021\net48\" />
 	</Target>
-	
+
 	<Target Name="Build2022" AfterTargets="DispatchToInnerBuilds">
 		<Message Importance="high" Text="*** Running post-dispatch build for Revit 2022 ***" />
-		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2022" />
+		<MSBuild Projects="$(MSBuildProjectFile)"
+				 Targets="Restore;Build"
+				 Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2022;BaseIntermediateOutputPath=obj\$(Configuration)\2022\;IntermediateOutputPath=obj\$(Configuration)\2022\net48\" />
 	</Target>
-	
+
 	<Target Name="Build2023" AfterTargets="DispatchToInnerBuilds">
 		<Message Importance="high" Text="*** Running post-dispatch build for Revit 2023 ***" />
-		<MSBuild Projects="$(MSBuildProjectFile)" Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2023" />
+		<MSBuild Projects="$(MSBuildProjectFile)"
+				 Targets="Restore;Build"
+				 Properties="Configuration=$(Configuration);TargetFramework=net48;RevitVersion=2023;BaseIntermediateOutputPath=obj\$(Configuration)\2023\;IntermediateOutputPath=obj\$(Configuration)\2023\net48\" />
 	</Target>
 	
 	<Target Name="Build2025" AfterTargets="DispatchToInnerBuilds">
