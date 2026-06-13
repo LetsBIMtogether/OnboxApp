@@ -602,8 +602,8 @@
 		</ItemGroup>
 	</Target>
 	
-	<!-- Remove .deps.json for .NET 8.0 builds -->
-	<Target Name="RemoveRevit2025DepsJsonFile" AfterTargets="AfterBuild" Condition="'$(RevitVersion)' == '2025'">
+	<!-- Remove .deps.json for .NET 8.0 and later builds -->
+	<Target Name="RemoveRevitDepsJsonFile" AfterTargets="AfterBuild" Condition="'$(RevitVersion)' == '2025' OR '$(RevitVersion)' == '2026' OR '$(RevitVersion)' == '2027'">
 		<ItemGroup>
 			<DepsJsonFile Include="$(OutputPath)\$(AssemblyName).deps.json" />
 		</ItemGroup>
