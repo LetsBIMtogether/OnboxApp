@@ -1,25 +1,18 @@
-# OnBoxApp 1.1.6.0 (Fork L-BIM-T_PR2A / Revit 2019-2026)
-- [Click here to download the installation file. (Last updated November 23, 2025)](https://github.com/LetsBIMtogether/OnboxApp/releases/download/v1.1.6.0_L-BIM-T_PR2A/OnboxApp_Install_1160-LBIMT-PR2A.zip)
+# OnboxApp 1.1.6.0 (Fork L-BIM-T_PR3 / Revit 2019 - 2027)
+- [Click here to download the installation file. (Last updated June 13, 2026)](https://github.com/LetsBIMtogether/OnboxApp/releases/download/v1.1.6.0_L-BIM-T_PR3/OnboxApp_Install_1160-LBIMT-PR3.zip)
 ---
 ![](https://raw.githubusercontent.com/engthiago/OnboxApp/master/Ribbon.png)
 ## GitHub Fork Progress Narrative:
 
-- Revit 2025 & 2026 support added
-	- (Revit 2019 - 2026 supported)
-	
-- Revit 2024+ BeamsFromColumns.cs & BeamsFromColumnsUI.xaml:
-	- Temporary downgrade TD01, only one beam at a time.
-	- Chain checkbox greyed out.
- 	- (Beams From Clumns button)
+- Revit 2027 support added
+	- (Revit 2019 - 2027 supported)
+
+- All tools work :)
+	- (Some did not on previous forked releases)
 
 - Converted .csproj to SDK style project:
-	- "Debug One" works.
-	- "Debug" needs to be fixed.
-
-- Not Tested/Started:
-	- ColumnsFromDwg (Columns From CAD)
-	- RevitZip (Package Project)
-	- (Likely don't work in Revit 2025+)
+	- Debugging (F5 / Play button) only works with "Debug One" (not "Debug").
+	- Build works for all configurations.
 
 - This fork's repository:
 https://github.com/LetsBIMtogether/OnboxApp

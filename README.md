@@ -1,5 +1,11 @@
 # OnboxApp 1.1.6.0 (Fork L-BIM-T_PR3 / Revit 2019 - 2027)
-- [Click here to download the installation file. (Last updated June ##, 2026) (Coming Soon...)](https://github.com/LetsBIMtogether/OnboxApp/releases/download/v1.1.6.0_L-BIM-T_PR2A/OnboxApp_Install_1160-LBIMT-PR3.zip)
+
+👉 [Click here to download the installation file. (June 14, 2026)](https://github.com/LetsBIMtogether/OnboxApp/releases/download/v1.1.6.0_L-BIM-T_PR3/OnboxApp_Install_1160-LBIMT-PR3.zip)
+
+🎥 [Watch a YouTube demo](https://www.youtube.com/watch?v=hAiw_ndonxY)
+
+Onbox is a free and open source Revit App that helps day to day tasks like renumbering elements, creating structural components, topo surface manipulations, and content management.
+
 ---
 ![](https://raw.githubusercontent.com/engthiago/OnboxApp/master/Ribbon.png)
 ## GitHub Fork Progress Narrative:
@@ -8,7 +14,7 @@
 	- (Revit 2019 - 2027 supported)
 
 - All tools work :)
-	- (Not all did on my previous fork releases)
+	- (Some did not on previous forked releases)
 
 - Converted .csproj to SDK style project:
 	- Debugging (F5 / Play button) only works with "Debug One" (not "Debug").
